@@ -19,7 +19,8 @@ p {
 }
 div {
   background: #1e293b;
-  margin: 20px;
-  padding: 15px;
+  margin: 30px auto;
+  padding: 20px;
+  width: 60%;
   border-radius: 10px;
 }
