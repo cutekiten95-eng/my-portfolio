@@ -147,3 +147,41 @@ nav.scrolled {
   box-shadow: 0 5px 20px rgba(0,0,0,0.6);
   transition: 0.3s;
 }
+/* 🔥 Animated Glow Background */
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  filter: blur(120px);
+  z-index: -1;
+}
+
+/* البنفسجي */
+body::before {
+  background: #7c3aed;
+  top: -150px;
+  left: -150px;
+  animation: move1 12s infinite alternate ease-in-out;
+}
+
+/* الأزرق */
+body::after {
+  background: #2563eb;
+  bottom: -150px;
+  right: -150px;
+  animation: move2 14s infinite alternate ease-in-out;
+}
+
+/* الحركة */
+@keyframes move1 {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(150px, 100px); }
+}
+
+@keyframes move2 {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(-120px, -80px); }
+}
