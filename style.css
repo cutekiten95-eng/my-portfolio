@@ -2,6 +2,8 @@
 html {
   scroll-behavior: smooth;
 }
+
+/* Body + Background احترافي */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -11,6 +13,7 @@ body {
               radial-gradient(circle at bottom right, #4c1d95, transparent 40%),
               linear-gradient(135deg, #020617, #0f172a, #020617);
 }
+
 /* Navbar */
 nav {
   position: fixed;
@@ -29,83 +32,15 @@ nav a {
   margin-left: 20px;
   transition: 0.3s;
 }
-nav {
-  position: fixed;
-  width: 100%;
-  padding: 20px 50px;
-  background: rgba(0,0,0,0.6);
-  backdrop-filter: blur(10px);
-}
-/* HOME */
-#home {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+
+nav a:hover {
+  color: #22c55e;
 }
 
-.main-text {
-  font-size: 50px;
-  font-weight: bold;
-}
-
-.sub-text {
-  font-size: 20px;
-  color: #cbd5e1;
-}
-
-/* Button */
-.btn {
-  margin-top: 20px;
-  padding: 12px 25px;
-  background: #22c55e;
-  color: black;
-  text-decoration: none;
-  border-radius: 8px;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-.btn:hover {
-  background: #16a34a;
-}
-
-/* Cards */
-.card {
-  background: rgba(30,41,59,0.7);
-  padding: 20px;
-  margin: 30px auto;
-  width: 60%;
-  border-radius: 12px;
-  backdrop-filter: blur(5px);
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-}
-
-/* Editable text */
-.editable {
-  color: #cbd5e1;
-}
-
-/* Fade animation */
-.fade {
-  opacity: 0;
-  transform: translateY(40px);
-  animation: fadeIn 1s forwards;
-}
-
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+/* Sections منفصلة */
 section {
   padding: 100px 30px;
-  margin: 60px auto;
+  margin: 80px auto;
   width: 85%;
   border-radius: 20px;
 
@@ -122,8 +57,51 @@ section {
 section:hover {
   transform: translateY(-5px);
 }
+
+/* Home */
+#home {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Text */
+.main-text {
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.sub-text {
+  font-size: 20px;
+  color: #cbd5e1;
+}
+
+/* Titles */
 h2 {
   color: #22c55e;
   font-size: 28px;
   margin-bottom: 20px;
+}
+
+/* Cards */
+.card {
+  background: rgba(30,41,59,0.7);
+  padding: 20px;
+  margin: 30px auto;
+  width: 60%;
+  border-radius: 12px;
+  backdrop-filter: blur(5px);
+}
+
+/* Button */
+.btn {
+  margin-top: 20px;
+  padding: 12px 25px;
+  background: #22c55e;
+  color: black;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
 }
