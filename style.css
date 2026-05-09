@@ -3,54 +3,71 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Body + Background احترافي */
+/* Body + Background */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   color: white;
 
-  background: radial-gradient(circle at top left, #1e1b4b, transparent 40%),
-              radial-gradient(circle at bottom right, #4c1d95, transparent 40%),
-              linear-gradient(135deg, #020617, #0f172a, #020617);
+  background:
+    radial-gradient(circle at top left, #1e1b4b, transparent 40%),
+    radial-gradient(circle at bottom right, #4c1d95, transparent 40%),
+    #020617;
+
+  padding-top: 80px; /* مهم باش navbar ما تغطيش */
 }
 
 /* Navbar */
 nav {
   position: fixed;
+  top: 0;
+  left: 0;
+
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 20px 50px;
-  background: rgba(0,0,0,0.6);
+  padding: 20px 40px;
+
+  background: rgba(0,0,0,0.7);
   backdrop-filter: blur(10px);
+
   z-index: 1000;
 }
 
 nav a {
   color: white;
-  text-decoration: none;
   margin-left: 20px;
+  text-decoration: none;
+  position: relative;
+}
+
+/* Hover effect */
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0%;
+  height: 2px;
+  background: #22c55e;
   transition: 0.3s;
 }
 
-nav a:hover {
-  color: #22c55e;
+nav a:hover::after {
+  width: 100%;
 }
 
-/* Sections منفصلة */
+/* Sections */
 section {
-  padding: 100px 30px;
+  padding: 100px 20px;
   margin: 80px auto;
   width: 85%;
   border-radius: 20px;
 
-  background: rgba(15, 23, 42, 0.6);
+  background: rgba(15,23,42,0.6);
   backdrop-filter: blur(12px);
 
-  box-shadow: 
-    0 10px 30px rgba(0,0,0,0.5),
-    0 0 20px rgba(76, 29, 149, 0.3);
-
+  box-shadow: 0 0 30px rgba(76,29,149,0.3);
   transition: 0.3s;
 }
 
@@ -58,7 +75,7 @@ section:hover {
   transform: translateY(-5px);
 }
 
-/* Home */
+/* Hero */
 #home {
   height: 100vh;
   display: flex;
@@ -67,41 +84,60 @@ section:hover {
   text-align: center;
 }
 
-/* Text */
 .main-text {
   font-size: 50px;
   font-weight: bold;
 }
 
 .sub-text {
-  font-size: 20px;
   color: #cbd5e1;
 }
 
-/* Titles */
-h2 {
-  color: #22c55e;
-  font-size: 28px;
-  margin-bottom: 20px;
+/* Buttons */
+.buttons {
+  margin-top: 20px;
+}
+
+.btn {
+  background: #22c55e;
+  padding: 10px 20px;
+  border-radius: 8px;
+  color: black;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+.btn-outline {
+  border: 1px solid white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  color: white;
+  text-decoration: none;
+}
+
+/* Grid */
+.grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 /* Cards */
 .card {
   background: rgba(30,41,59,0.7);
   padding: 20px;
-  margin: 30px auto;
-  width: 60%;
+  width: 300px;
   border-radius: 12px;
-  backdrop-filter: blur(5px);
+  transition: 0.3s;
 }
 
-/* Button */
-.btn {
-  margin-top: 20px;
-  padding: 12px 25px;
-  background: #22c55e;
-  color: black;
-  text-decoration: none;
-  border-radius: 8px;
-  font-weight: bold;
+.card:hover {
+  transform: translateY(-10px);
+}
+
+/* Titles */
+h2 {
+  color: #22c55e;
+  font-size: 28px;
 }
