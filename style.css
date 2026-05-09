@@ -141,3 +141,9 @@ h2 {
   color: #22c55e;
   font-size: 28px;
 }
+/* Navbar when scrolling */
+nav.scrolled {
+  background: rgba(0,0,0,0.9);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.6);
+  transition: 0.3s;
+}
