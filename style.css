@@ -14,19 +14,24 @@ body {
     radial-gradient(circle at bottom right, #4c1d95, transparent 40%),
     #020617;
 
-  padding-top: 80px; /* مهم باش navbar ما تغطيش */
+  padding-top: 80px;
+  overflow-x: hidden;
 }
 
-/* Navbar */
+/* Navbar FIXED + CLEAN */
 nav {
   position: fixed;
   top: 0;
   left: 0;
 
   width: 100%;
+  box-sizing: border-box; /* 🔥 الحل الرئيسي */
+
   display: flex;
   justify-content: space-between;
-  padding: 20px 40px;
+  align-items: center;
+
+  padding: 15px 30px;
 
   background: rgba(0,0,0,0.7);
   backdrop-filter: blur(10px);
@@ -34,9 +39,15 @@ nav {
   z-index: 1000;
 }
 
+/* Links container */
+nav div {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* 🔥 بدل margin */
+}
+
 nav a {
   color: white;
-  margin-left: 20px;
   text-decoration: none;
   position: relative;
 }
@@ -55,6 +66,12 @@ nav a::after {
 
 nav a:hover::after {
   width: 100%;
+}
+
+/* Navbar on scroll */
+nav.scrolled {
+  background: rgba(0,0,0,0.9);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.6);
 }
 
 /* Sections */
@@ -141,12 +158,7 @@ h2 {
   color: #22c55e;
   font-size: 28px;
 }
-/* Navbar when scrolling */
-nav.scrolled {
-  background: rgba(0,0,0,0.9);
-  box-shadow: 0 5px 20px rgba(0,0,0,0.6);
-  transition: 0.3s;
-}
+
 /* 🔥 Animated Glow Background */
 body::before,
 body::after {
@@ -159,7 +171,6 @@ body::after {
   z-index: -1;
 }
 
-/* البنفسجي */
 body::before {
   background: #7c3aed;
   top: -150px;
@@ -167,7 +178,6 @@ body::before {
   animation: move1 12s infinite alternate ease-in-out;
 }
 
-/* الأزرق */
 body::after {
   background: #2563eb;
   bottom: -150px;
@@ -175,7 +185,6 @@ body::after {
   animation: move2 14s infinite alternate ease-in-out;
 }
 
-/* الحركة */
 @keyframes move1 {
   0% { transform: translate(0, 0); }
   100% { transform: translate(150px, 100px); }
