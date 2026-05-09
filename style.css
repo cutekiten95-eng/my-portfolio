@@ -3,7 +3,7 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Body + Background */
+/* Body */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -18,14 +18,14 @@ body {
   overflow-x: hidden;
 }
 
-/* Navbar FIXED + CLEAN */
+/* Navbar */
 nav {
   position: fixed;
   top: 0;
   left: 0;
 
   width: 100%;
-  box-sizing: border-box; /* 🔥 الحل الرئيسي */
+  box-sizing: border-box;
 
   display: flex;
   justify-content: space-between;
@@ -40,10 +40,10 @@ nav {
 }
 
 /* Links container */
-nav div {
+.nav-links {
   display: flex;
   align-items: center;
-  gap: 15px; /* 🔥 بدل margin */
+  gap: 15px;
 }
 
 nav a {
@@ -52,7 +52,7 @@ nav a {
   position: relative;
 }
 
-/* Hover effect */
+/* Hover line */
 nav a::after {
   content: "";
   position: absolute;
@@ -68,7 +68,7 @@ nav a:hover::after {
   width: 100%;
 }
 
-/* Navbar on scroll */
+/* Scroll effect */
 nav.scrolled {
   background: rgba(0,0,0,0.9);
   box-shadow: 0 5px 20px rgba(0,0,0,0.6);
@@ -159,7 +159,7 @@ h2 {
   font-size: 28px;
 }
 
-/* 🔥 Animated Glow Background */
+/* Glow Background */
 body::before,
 body::after {
   content: "";
