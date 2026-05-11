@@ -3,7 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ultimate Portfolio</title>
+  <title>High-Converting Portfolio</title>
+
+  <!-- SEO -->
+  <meta name="description" content="I build high-performance websites that bring real clients and results.">
+
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -23,6 +27,7 @@
     <a href="#contact" data-key="navContact">Contact</a>
   </div>
 
+  <!-- LANG -->
   <div class="lang">
     <button onclick="setLang('en')">EN</button>
     <button onclick="setLang('fr')">FR</button>
@@ -33,6 +38,7 @@
 
 <!-- HERO -->
 <section id="home" class="fade">
+
   <h1 class="gradient" data-key="title">
     Get more clients with a website built to convert
   </h1>
@@ -46,63 +52,70 @@
     <a href="#projects" class="btn-outline" data-key="cta2">See Work</a>
   </div>
 
+  <!-- TRUST BAR (FIXED POSITION) -->
   <div class="trust-bar">
     <span>✔ Fast Delivery</span>
     <span>✔ Clean Code</span>
     <span>✔ Client-Focused</span>
   </div>
+
 </section>
 
 <!-- SERVICES -->
 <section id="services" class="fade">
+
   <h2 data-key="servicesTitle">Services</h2>
 
   <div class="grid">
 
     <div class="card" onclick="openService('web')">
-      <h3>Get More Clients Online</h3>
-      <p>Websites designed to convert visitors into customers.</p>
+      <h3 data-key="service1Title">Get More Clients Online</h3>
+      <p data-key="service1Desc">Websites designed to convert visitors into customers.</p>
     </div>
 
     <div class="card" onclick="openService('python')">
-      <h3>Save Hours Every Week</h3>
-      <p>Automation tools that eliminate repetitive work.</p>
+      <h3 data-key="service2Title">Save Hours Every Week</h3>
+      <p data-key="service2Desc">Automation tools that eliminate repetitive work.</p>
     </div>
 
     <div class="card" onclick="openService('data')">
-      <h3>Turn Data Into Decisions</h3>
-      <p>Clean, structured data for better decisions.</p>
+      <h3 data-key="service3Title">Turn Data Into Decisions</h3>
+      <p data-key="service3Desc">Clean, structured data for better decisions.</p>
     </div>
 
     <div class="card" onclick="openService('translate')">
-      <h3>Professional Translation</h3>
-      <p>Arabic, French, English, German — clear & natural.</p>
+      <h3 data-key="service4Title">Professional Translation</h3>
+      <p data-key="service4Desc">Arabic, French, English, German — clear & natural.</p>
     </div>
 
   </div>
+
 </section>
 
 <!-- PROJECTS -->
 <section id="projects" class="fade">
+
   <h2 data-key="projectsTitle">Projects</h2>
 
   <div class="grid">
 
     <div class="card" onclick="openModal()">
-      <h3>Business Website</h3>
-      <p>+40% more client inquiries with a conversion-focused design.</p>
+      <h3 data-key="project1Title">Business Website</h3>
+      <p data-key="project1Desc">+40% more client inquiries with a conversion-focused design.</p>
     </div>
 
     <div class="card">
-      <h3>Automation Tool</h3>
-      <p>Reduced manual work by 70% using Python automation.</p>
+      <h3 data-key="project2Title">Automation Tool</h3>
+      <p data-key="project2Desc">Reduced manual work by 70% using Python automation.</p>
     </div>
 
   </div>
+
 </section>
 
 <!-- TESTIMONIALS -->
 <section class="fade">
+
   <h2>Client Feedback</h2>
 
   <div class="grid">
@@ -116,10 +129,12 @@
     </div>
 
   </div>
+
 </section>
 
 <!-- CONTACT -->
 <section id="contact" class="fade">
+
   <h2 data-key="contactTitle">Ready to get more clients?</h2>
 
   <p data-key="contactDesc">
@@ -129,14 +144,15 @@
   <a href="https://www.fiverr.com/" target="_blank" class="btn" data-key="contactBtn">
     Start Your Project Now
   </a>
+
 </section>
 
-<!-- MODAL PROJECT -->
+<!-- PROJECT MODAL -->
 <div id="modal">
   <div class="modal-box">
     <span onclick="closeModal()">✖</span>
-    <h2>Project Details</h2>
-    <p>High-converting website built to generate real clients.</p>
+    <h2 data-key="modalTitle">Project Details</h2>
+    <p data-key="modalDesc">High-converting website built to generate real clients.</p>
   </div>
 </div>
 
@@ -148,9 +164,10 @@
   </div>
 </div>
 
-<!-- POPUP -->
+<!-- EXIT POPUP -->
 <div id="popup">
   <div class="popup-box">
+
     <span onclick="closePopup()">✖</span>
 
     <h2 data-key="popupTitle">Wait… before you leave</h2>
@@ -162,6 +179,7 @@
     <a href="#contact" class="btn" onclick="closePopup()" data-key="popupBtn">
       Start Now
     </a>
+
   </div>
 </div>
 
@@ -171,5 +189,6 @@
 </a>
 
 <script src="script.js"></script>
+
 </body>
 </html>
