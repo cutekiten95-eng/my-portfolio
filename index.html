@@ -116,17 +116,19 @@
     <p id="serviceText"></p>
   </div>
 </div>
-
 <!-- POPUP -->
 <div id="popup">
   <div class="popup-box">
+    <span onclick="closePopup()" style="cursor:pointer;">✖</span>
+
     <h2 data-key="popupTitle">Wait… don’t leave yet</h2>
     <p data-key="popupDesc">
       You’re one step away from a better website.
     </p>
-    <a href="#contact" class="btn" data-key="popupBtn">Start Now</a>
+
+    <a href="#contact" class="btn" data-key="popupBtn" onclick="closePopup()">Start Now</a>
   </div>
-</div>
+</div> <!-- 🔥 هادي كانت ناقصة -->
 
 <!-- STICKY -->
 <a href="#contact" class="sticky" data-key="sticky">Start</a>
