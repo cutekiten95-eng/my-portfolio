@@ -30,30 +30,49 @@
 </nav>
 
 <section id="home" class="fade">
-  <h1 data-key="title">I build websites that bring clients</h1>
-  <p data-key="desc">Fast. Clean. Powerful.</p>
+  <h1 class="gradient" data-key="title">
+    Your website shouldn’t just exist — it should bring clients
+  </h1>
 
-  <a href="#contact" class="btn">Start Project</a>
+  <p data-key="desc">
+    High-performance websites & tools built to attract, build trust, and convert.
+  </p>
+
+  <div class="buttons">
+    <a href="#contact" class="btn">Start Your Project</a>
+    <a href="#projects" class="btn-outline">See Work</a>
+  </div>
+
+  <p class="trust">✔ Fast ✔ Custom ✔ Results</p>
 </section>
 
 <section id="services" class="fade">
   <h2>Services</h2>
 
   <div class="grid">
-    <div class="card" onclick="openService('web')">Website Dev</div>
-    <div class="card" onclick="openService('python')">Automation</div>
-    <div class="card" onclick="openService('data')">Data</div>
+    <div class="card" onclick="openService('web')">Website Development</div>
+    <div class="card" onclick="openService('python')">Python Automation</div>
+    <div class="card" onclick="openService('data')">Data / Excel</div>
+    <div class="card" onclick="openService('translate')">Translation</div>
   </div>
 </section>
 
 <section id="projects" class="fade">
   <h2>Projects</h2>
-  <div class="card" onclick="openModal()">View Project</div>
+
+  <div class="grid">
+    <div class="card" onclick="openModal()">Business Website</div>
+    <div class="card">Automation Tool</div>
+  </div>
 </section>
 
 <section id="contact" class="fade">
-  <h2>Start Now</h2>
-  <a href="https://www.fiverr.com" class="btn">Contact Me</a>
+  <h2>Let’s Build Something Powerful</h2>
+  <p>If you're serious about results — I'm ready.</p>
+
+  <a href="https://www.fiverr.com/" target="_blank" class="btn">
+    Contact Me Now
+  </a>
 </section>
 
 <!-- MODAL -->
@@ -61,6 +80,7 @@
   <div class="modal-box">
     <span onclick="closeModal()">✖</span>
     <h2>Project Details</h2>
+    <p>High-converting website built for real business results.</p>
   </div>
 </div>
 
@@ -72,10 +92,11 @@
   </div>
 </div>
 
-<!-- POPUP -->
+<!-- EXIT POPUP -->
 <div id="popup">
   <div class="popup-box">
-    <h2>Wait!</h2>
+    <h2>Wait… don’t leave yet</h2>
+    <p>You’re one step away from a better website.</p>
     <a href="#contact" class="btn">Start Now</a>
   </div>
 </div>
