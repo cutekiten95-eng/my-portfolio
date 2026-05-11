@@ -1,55 +1,66 @@
-document.addEventListener("DOMContentLoaded", ()=>{
+document.addEventListener("DOMContentLoaded",()=>{
 
-  // fade
-  const fades = document.querySelectorAll(".fade");
+// loader
+setTimeout(()=>{
+document.getElementById("loader").style.display="none";
+},800);
 
-  function show(){
-    fades.forEach(el=>{
-      if(el.getBoundingClientRect().top < window.innerHeight - 100){
-        el.classList.add("show");
-      }
-    });
-  }
-
-  window.addEventListener("scroll", show);
-  show();
-
-  // popup
-  let shown=false;
-  document.addEventListener("mouseleave",(e)=>{
-    if(e.clientY<0 && !shown){
-      document.getElementById("popup").style.display="block";
-      shown=true;
-    }
-  });
-
+// fade
+const fades=document.querySelectorAll(".fade");
+window.addEventListener("scroll",()=>{
+fades.forEach(el=>{
+if(el.getBoundingClientRect().top < window.innerHeight-100){
+el.classList.add("show");
+}
+});
 });
 
-// service modal
-function openService(type){
-  const data={
-    web:"Websites that convert visitors into clients.",
-    python:"Automation tools to save time.",
-    data:"Clean data for better decisions."
-  };
-
-  document.getElementById("serviceText").innerText=data[type];
-  document.getElementById("serviceModal").style.display="block";
+// popup
+let shown=false;
+document.addEventListener("mouseout",(e)=>{
+if(!shown && e.clientY<=0){
+document.getElementById("popup").style.display="flex";
+shown=true;
 }
+});
 
-function closeService(){
-  document.getElementById("serviceModal").style.display="none";
+// sticky text change
+const sticky=document.getElementById("sticky");
+window.addEventListener("scroll",()=>{
+if(window.scrollY>500){
+sticky.innerText="Get Offer";
+}else{
+sticky.innerText="Start";
 }
+});
+
+// fake notifications
+setInterval(()=>{
+const notif=document.getElementById("notif");
+notif.style.display="block";
+setTimeout(()=>notif.style.display="none",3000);
+},8000);
+
+// countdown
+let time=300;
+setInterval(()=>{
+time--;
+document.getElementById("timer").innerText=time+"s";
+},1000);
+
+// form → WhatsApp
+document.getElementById("form").addEventListener("submit",(e)=>{
+e.preventDefault();
+
+let name=e.target[0].value;
+let msg=e.target[2].value;
+
+let url=`https://wa.me/212XXXXXXXXX?text=Hello I am ${name} - ${msg}`;
+window.open(url,"_blank");
+});
+
+});
 
 function closePopup(){
-  document.getElementById("popup").style.display="none";
+document.getElementById("popup").style.display="none";
 }
-
-// form
-document.addEventListener("submit",function(e){
-  if(e.target.id==="contactForm"){
-    e.preventDefault();
-    alert("Message sent!");
-    window.open("https://www.fiverr.com/","_blank");
-  }
-});
