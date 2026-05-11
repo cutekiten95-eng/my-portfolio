@@ -12,9 +12,6 @@
 <!-- LOADER -->
 <div id="loader"><h1>Loading...</h1></div>
 
-<!-- PROGRESS -->
-<div id="progress"></div>
-
 <!-- NAV -->
 <nav>
   <h2>MyBrand</h2>
@@ -26,142 +23,81 @@
     <a href="#about">About</a>
     <a href="#contact">Contact</a>
   </div>
-
-  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-
-  <div class="lang">
-    <button onclick="setLang('en')">EN</button>
-    <button onclick="setLang('fr')">FR</button>
-    <button onclick="setLang('ar')">AR</button>
-    <button onclick="setLang('de')">DE</button>
-  </div>
 </nav>
 
 <!-- HERO -->
-<section id="home" class="fade">
-  <h1 class="main-text" data-key="heroTitle">
-    I build websites that bring clients
-  </h1>
-
-  <p class="sub-text" data-key="heroDesc">
-    Fast. Clean. Built from scratch.
-  </p>
-
-  <p class="trust">✔ Fast ✔ Custom ✔ Reliable</p>
+<section id="home">
+  <h1>Your website shouldn’t just look good — it should bring clients</h1>
+  <p>High-performance websites & tools built to convert visitors into real customers.</p>
 
   <div class="buttons">
-    <a href="#contact" class="btn">Start Your Project Now</a>
-    <a href="#projects" class="btn-outline">See Work</a>
+    <a href="#contact" class="btn">Start Your Project</a>
+    <a href="#projects" class="btn-outline">See My Work</a>
   </div>
 </section>
 
 <!-- SERVICES -->
-<section id="services" class="fade">
+<section id="services">
   <h2>Services</h2>
 
   <div class="grid">
-
     <div class="card" onclick="toggleCard(this)">
       <h3>Website Development</h3>
-      <p class="hidden">
-        Custom-built websites focused on performance, UX, and real results.
-      </p>
+      <p class="hidden">Custom websites built from scratch. Fast, clean, optimized.</p>
     </div>
 
     <div class="card" onclick="toggleCard(this)">
       <h3>Python Automation</h3>
-      <p class="hidden">
-        Automation tools that save time and eliminate repetitive tasks.
-      </p>
+      <p class="hidden">Automate tasks and save time with smart tools.</p>
     </div>
 
     <div class="card" onclick="toggleCard(this)">
       <h3>Data / Excel</h3>
-      <p class="hidden">
-        Clean and structured data for better decisions and efficiency.
-      </p>
+      <p class="hidden">Organized data for better decisions.</p>
     </div>
-
-    <div class="card" onclick="toggleCard(this)">
-      <h3>Translation</h3>
-      <p class="hidden">
-        Accurate translation between Arabic, French, English, and German.
-      </p>
-    </div>
-
-    <div class="card" onclick="toggleCard(this)">
-      <h3>Teaching</h3>
-      <p class="hidden">
-        Clear explanations in multiple languages to help you understand deeply.
-      </p>
-    </div>
-
   </div>
 </section>
 
 <!-- PROJECTS -->
-<section id="projects" class="fade">
+<section id="projects">
   <h2>Projects</h2>
 
   <div class="grid">
     <div class="card" onclick="openModal()">
       <h3>Business Website</h3>
-      <p>Modern website designed to attract clients</p>
+      <p>Designed to convert visitors into clients</p>
     </div>
   </div>
 </section>
 
 <!-- ABOUT -->
-<section id="about" class="fade">
-  <h2>About Me</h2>
-
+<section id="about">
+  <h2>About</h2>
   <p>
-    My journey started with curiosity — I wanted to build my own game and understand how technology works.
-  </p>
-
-  <p>
-    I explored Java, C++, Python, and web development, constantly improving my skills.
-  </p>
-
-  <p>
-    Today, I build real solutions: websites, automation tools, and data systems.
-  </p>
-
-  <p>
-    I focus on creating work that is clean, useful, and reliable.
+My journey started with curiosity — I wanted to build my own game and understand how technology works.
+Today, I create real solutions: websites, automation tools, and data systems.
   </p>
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="fade">
+<section id="contact">
   <h2>Let’s Work Together</h2>
-
-  <p>
-    If you’re serious about building something real and effective — I’m ready to help.
-  </p>
+  <p>Serious about your project? Let’s build something powerful.</p>
 
   <a href="https://www.fiverr.com/" target="_blank" class="btn">
     Contact Me on Fiverr
   </a>
 </section>
 
-<!-- STICKY CTA -->
+<!-- STICKY BUTTON -->
 <a href="#contact" class="sticky">Start</a>
 
 <!-- MODAL -->
 <div id="modal">
   <div class="modal-content">
-    <span onclick="closeModal()" class="close">✖</span>
+    <span onclick="closeModal()">✖</span>
     <h2>Project Details</h2>
-    <p>This project was built to demonstrate performance and clean design.</p>
-  </div>
-</div>
-
-<!-- POPUP -->
-<div id="popup">
-  <div class="popup-box">
-    <h2>Before you go...</h2>
-    <a href="#contact" class="btn">Start Project</a>
+    <p>High-performance website focused on UX and conversion.</p>
   </div>
 </div>
 
