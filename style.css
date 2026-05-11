@@ -1,13 +1,17 @@
 /* =======================
 🔥 BASE
 ======================= */
+html{
+  scroll-behavior:smooth;
+}
+
 body{
   margin:0;
   font-family:Arial, sans-serif;
   color:white;
   background:#020617;
   overflow-x:hidden;
-  padding-top:70px; /* باش navbar ما تغطيش */
+  padding-top:70px;
 }
 
 
@@ -58,7 +62,7 @@ nav{
   left:0;
   display:flex;
   justify-content:space-between;
-  align-items:center; /* 🔥 fix */
+  align-items:center;
   padding:15px 30px;
   background:rgba(0,0,0,0.7);
   backdrop-filter:blur(10px);
@@ -72,7 +76,7 @@ nav{
   position:relative;
 }
 
-/* hover underline */
+/* underline animation */
 .nav-links a::after{
   content:"";
   position:absolute;
@@ -95,9 +99,10 @@ nav{
 .gradient{
   font-size:50px;
   background:linear-gradient(90deg,#22c55e,#4ade80,#22c55e);
+  background-size:200%;
   -webkit-background-clip:text;
   color:transparent;
-  animation:glowText 4s infinite linear;
+  animation:glowText 4s linear infinite;
 }
 
 @keyframes glowText{
@@ -143,6 +148,10 @@ section{
   box-shadow:0 20px 40px rgba(0,0,0,0.6);
 }
 
+.card:active{
+  transform:scale(0.98);
+}
+
 
 /* =======================
 🔘 BUTTONS
@@ -159,6 +168,10 @@ section{
 
 .btn:hover{
   transform:scale(1.05);
+}
+
+.btn:active{
+  transform:scale(0.95);
 }
 
 .btn-outline{
@@ -179,17 +192,23 @@ section{
 /* =======================
 🪟 MODAL + POPUP
 ======================= */
-#modal,#serviceModal,#popup{
+#modal,
+#serviceModal,
+#popup{
   display:none;
   position:fixed;
   inset:0;
   background:rgba(0,0,0,0.85);
   z-index:2000;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
 }
 
-.modal-box,.popup-box{
+.modal-box,
+.popup-box{
   background:#020617;
-  margin:15% auto;
   padding:25px;
   width:320px;
   border-radius:12px;
@@ -217,6 +236,10 @@ section{
 
 .sticky:hover{
   transform:scale(1.1);
+}
+
+.sticky:active{
+  transform:scale(0.95);
 }
 
 
@@ -258,7 +281,7 @@ section{
 
 
 /* =======================
-📱 MOBILE
+📱 MOBILE (OPTIMIZED)
 ======================= */
 @media(max-width:768px){
 
@@ -285,5 +308,11 @@ section{
 
   section{
     padding:60px 15px;
+  }
+
+  /* performance boost */
+  body::before,
+  body::after{
+    display:none;
   }
 }
