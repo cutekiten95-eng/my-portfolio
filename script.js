@@ -1,14 +1,19 @@
-// LOADER
-window.addEventListener("load",()=>{
+// loader
+window.onload=()=>{
   document.getElementById("loader").style.display="none";
+};
+
+// scroll animation
+const fades=document.querySelectorAll(".fade");
+window.addEventListener("scroll",()=>{
+  fades.forEach(el=>{
+    if(el.getBoundingClientRect().top<window.innerHeight-100){
+      el.classList.add("show");
+    }
+  });
 });
 
-// SERVICES
-function toggleCard(card){
-  card.classList.toggle("active");
-}
-
-// MODAL
+// modal
 function openModal(){
   document.getElementById("modal").style.display="block";
 }
@@ -16,7 +21,21 @@ function closeModal(){
   document.getElementById("modal").style.display="none";
 }
 
-// EXIT POPUP
+// service modal
+function openService(type){
+  const text={
+    web:"Custom websites that convert visitors into clients",
+    python:"Automation tools to save time",
+    data:"Clean and structured data"
+  };
+  document.getElementById("serviceText").innerText=text[type];
+  document.getElementById("serviceModal").style.display="block";
+}
+function closeService(){
+  document.getElementById("serviceModal").style.display="none";
+}
+
+// exit popup
 let shown=false;
 document.addEventListener("mouseout",e=>{
   if(!shown && e.clientY<=0){
@@ -24,3 +43,8 @@ document.addEventListener("mouseout",e=>{
     shown=true;
   }
 });
+
+// language
+function setLang(lang){
+  alert("Language switched: "+lang);
+}
