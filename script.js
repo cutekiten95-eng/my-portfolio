@@ -1,51 +1,48 @@
-// loader
-window.onload=()=>{
-  document.getElementById("loader").style.display="none";
+// 🌍 LANG DATA
+const translations = {
+  en: {
+    title: "Your website shouldn’t just exist — it should bring clients",
+    desc: "High-performance websites & tools built to attract and convert.",
+    cta: "Start Your Project",
+    services: "Services"
+  },
+
+  fr: {
+    title: "Votre site ne doit pas juste exister — il doit attirer des clients",
+    desc: "Sites et outils performants conçus pour attirer et convertir.",
+    cta: "Démarrer votre projet",
+    services: "Services"
+  },
+
+  ar: {
+    title: "موقعك لا يجب أن يكون مجرد شكل — بل يجب أن يجلب عملاء",
+    desc: "مواقع وأدوات قوية لجذب وتحويل الزوار إلى عملاء.",
+    cta: "ابدأ مشروعك",
+    services: "الخدمات"
+  },
+
+  de: {
+    title: "Deine Website sollte nicht nur existieren — sie sollte Kunden bringen",
+    desc: "Leistungsstarke Websites und Tools, die konvertieren.",
+    cta: "Projekt starten",
+    services: "Dienstleistungen"
+  }
 };
 
-// scroll animation
-const fades=document.querySelectorAll(".fade");
-window.addEventListener("scroll",()=>{
-  fades.forEach(el=>{
-    if(el.getBoundingClientRect().top<window.innerHeight-100){
-      el.classList.add("show");
-    }
-  });
-});
 
-// modal
-function openModal(){
-  document.getElementById("modal").style.display="block";
-}
-function closeModal(){
-  document.getElementById("modal").style.display="none";
-}
-
-// service modal
-function openService(type){
-  const data={
-    web:"Custom websites built to convert visitors into clients.",
-    python:"Automation tools to save time and increase efficiency.",
-    data:"Clean and structured data ready for real decisions.",
-    translate:"Professional translation (AR / FR / EN / DE)."
-  };
-  document.getElementById("serviceText").innerText=data[type];
-  document.getElementById("serviceModal").style.display="block";
-}
-function closeService(){
-  document.getElementById("serviceModal").style.display="none";
-}
-
-// exit popup
-let shown=false;
-document.addEventListener("mouseout",e=>{
-  if(!shown && e.clientY<=0){
-    document.getElementById("popup").style.display="block";
-    shown=true;
-  }
-});
-
-// language (basic)
+// 🔥 CHANGE LANGUAGE
 function setLang(lang){
-  alert("Language: "+lang);
+  const elements = document.querySelectorAll("[data-key]");
+
+  elements.forEach(el => {
+    const key = el.getAttribute("data-key");
+    el.innerText = translations[lang][key];
+  });
+
+  // اتجاه العربية
+  if(lang === "ar"){
+    document.body.style.direction = "rtl";
+  } else {
+    document.body.style.direction = "ltr";
+  }
 }
