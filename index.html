@@ -27,10 +27,8 @@
     <a href="#contact">Contact</a>
   </div>
 
-  <!-- MOBILE MENU -->
   <div class="menu-toggle" onclick="toggleMenu()">☰</div>
 
-  <!-- LANG -->
   <div class="lang">
     <button onclick="setLang('en')">EN</button>
     <button onclick="setLang('fr')">FR</button>
@@ -52,7 +50,7 @@
   <p class="trust">✔ Fast ✔ Custom ✔ Reliable</p>
 
   <div class="buttons">
-    <a href="#" class="btn">Start Project</a>
+    <a href="#contact" class="btn">Start Your Project Now</a>
     <a href="#projects" class="btn-outline">See Work</a>
   </div>
 </section>
@@ -62,11 +60,42 @@
   <h2>Services</h2>
 
   <div class="grid">
-    <div class="card">Website Development</div>
-    <div class="card">Python Automation</div>
-    <div class="card">Data / Excel</div>
-    <div class="card">Translation</div>
-    <div class="card">Teaching</div>
+
+    <div class="card" onclick="toggleCard(this)">
+      <h3>Website Development</h3>
+      <p class="hidden">
+        Custom-built websites focused on performance, UX, and real results.
+      </p>
+    </div>
+
+    <div class="card" onclick="toggleCard(this)">
+      <h3>Python Automation</h3>
+      <p class="hidden">
+        Automation tools that save time and eliminate repetitive tasks.
+      </p>
+    </div>
+
+    <div class="card" onclick="toggleCard(this)">
+      <h3>Data / Excel</h3>
+      <p class="hidden">
+        Clean and structured data for better decisions and efficiency.
+      </p>
+    </div>
+
+    <div class="card" onclick="toggleCard(this)">
+      <h3>Translation</h3>
+      <p class="hidden">
+        Accurate translation between Arabic, French, English, and German.
+      </p>
+    </div>
+
+    <div class="card" onclick="toggleCard(this)">
+      <h3>Teaching</h3>
+      <p class="hidden">
+        Clear explanations in multiple languages to help you understand deeply.
+      </p>
+    </div>
+
   </div>
 </section>
 
@@ -75,42 +104,64 @@
   <h2>Projects</h2>
 
   <div class="grid">
-    <div class="card" onclick="openModal()">Project</div>
+    <div class="card" onclick="openModal()">
+      <h3>Business Website</h3>
+      <p>Modern website designed to attract clients</p>
+    </div>
   </div>
 </section>
 
 <!-- ABOUT -->
 <section id="about" class="fade">
-  <h2>About</h2>
+  <h2>About Me</h2>
+
   <p>
-    My journey started with curiosity. Today I build real digital solutions.
+    My journey started with curiosity — I wanted to build my own game and understand how technology works.
+  </p>
+
+  <p>
+    I explored Java, C++, Python, and web development, constantly improving my skills.
+  </p>
+
+  <p>
+    Today, I build real solutions: websites, automation tools, and data systems.
+  </p>
+
+  <p>
+    I focus on creating work that is clean, useful, and reliable.
   </p>
 </section>
 
 <!-- CONTACT -->
 <section id="contact" class="fade">
-  <h2>Ready to get your website?</h2>
-  <p>Fast response. Clean work. Real results.</p>
-  <a href="#" class="btn">Start Now</a>
+  <h2>Let’s Work Together</h2>
+
+  <p>
+    If you’re serious about building something real and effective — I’m ready to help.
+  </p>
+
+  <a href="https://www.fiverr.com/" target="_blank" class="btn">
+    Contact Me on Fiverr
+  </a>
 </section>
 
 <!-- STICKY CTA -->
-<a href="#" class="sticky">Start</a>
+<a href="#contact" class="sticky">Start</a>
 
 <!-- MODAL -->
 <div id="modal">
   <div class="modal-content">
-    <span onclick="closeModal()">✖</span>
+    <span onclick="closeModal()" class="close">✖</span>
     <h2>Project Details</h2>
-    <p>Details here...</p>
+    <p>This project was built to demonstrate performance and clean design.</p>
   </div>
 </div>
 
-<!-- EXIT POPUP -->
+<!-- POPUP -->
 <div id="popup">
   <div class="popup-box">
     <h2>Before you go...</h2>
-    <a href="#" class="btn">Start Project</a>
+    <a href="#contact" class="btn">Start Project</a>
   </div>
 </div>
 
