@@ -1,112 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>My Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio</title>
+<link rel="stylesheet" href="style.css">
 </head>
-<script>
-window.addEventListener("scroll", function() {
-  const nav = document.querySelector("nav");
 
-  if (window.scrollY > 50) {
-    nav.classList.add("scrolled");
-  } else {
-    nav.classList.remove("scrolled");
-  }
-});
-</script>
 <body>
 
-<!-- Navbar -->
+<!-- LOADER -->
+<div id="loader"><h1>Loading...</h1></div>
+
+<!-- PROGRESS -->
+<div id="progress"></div>
+
+<!-- NAV -->
 <nav>
   <h2>MyBrand</h2>
-  <div>
+
+  <div class="nav-links">
     <a href="#home">Home</a>
     <a href="#services">Services</a>
     <a href="#projects">Projects</a>
     <a href="#about">About</a>
     <a href="#contact">Contact</a>
   </div>
+
+  <!-- MOBILE MENU -->
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+  <!-- LANG -->
+  <div class="lang">
+    <button onclick="setLang('en')">EN</button>
+    <button onclick="setLang('fr')">FR</button>
+    <button onclick="setLang('ar')">AR</button>
+    <button onclick="setLang('de')">DE</button>
+  </div>
 </nav>
 
-<!-- HOME -->
-<section id="home">
-  <h1 class="main-text">[WRITE STRONG TITLE HERE]</h1>
-  <p class="sub-text">[I build high-quality, custom-coded websites and tools focused on performance, clarity, and real usability.]</p>
+<!-- HERO -->
+<section id="home" class="fade">
+  <h1 class="main-text" data-key="heroTitle">
+    I build websites that bring clients
+  </h1>
+
+  <p class="sub-text" data-key="heroDesc">
+    Fast. Clean. Built from scratch.
+  </p>
+
+  <p class="trust">✔ Fast ✔ Custom ✔ Reliable</p>
 
   <div class="buttons">
-    <a href="#contact" class="btn">Hire Me</a>
-    <a href="#projects" class="btn-outline">See My Work</a>
+    <a href="#" class="btn">Start Project</a>
+    <a href="#projects" class="btn-outline">See Work</a>
   </div>
 </section>
 
 <!-- SERVICES -->
-<section id="services">
-  <h2>My Services</h2>
+<section id="services" class="fade">
+  <h2>Services</h2>
 
   <div class="grid">
-    <div class="card">
-      <h3>Website Development</h3>
-      <p class="editable">[I build modern, fully custom-coded websites designed to be fast, clean, and reliable.
-
-Every project is structured with attention to performance, user experience, and long-term usability.]</p>
-    </div>
-
-    <div class="card">
-      <h3>Python Automation</h3>
-      <p class="editable">[I develop practical automation tools that simplify workflows and improve efficiency.
-
-Focused on building solutions that save time and reduce manual work.]</p>
-    </div>
-
-    <div class="card">
-      <h3>Data Entry / Excel</h3>
-      <p class="editable">[I develop practical automation tools that simplify workflows and improve efficiency.
-
-Focused on building solutions that save time and reduce manual work.]</p>
-    </div>
+    <div class="card">Website Development</div>
+    <div class="card">Python Automation</div>
+    <div class="card">Data / Excel</div>
+    <div class="card">Translation</div>
+    <div class="card">Teaching</div>
   </div>
 </section>
 
 <!-- PROJECTS -->
-<section id="projects">
-  <h2>My Projects</h2>
+<section id="projects" class="fade">
+  <h2>Projects</h2>
 
   <div class="grid">
-    <div class="card">
-      <h3>Project 1</h3>
-      <img src="project1.png" width="100%">
-      <p class="editable">[DESCRIPTION]</p>
-    </div>
-
-    <div class="card">
-      <h3>Project 2</h3>
-      <img src="project1.png" width="100%">
-      <p class="editable">[DESCRIPTION]</p>
-    </div>
+    <div class="card" onclick="openModal()">Project</div>
   </div>
 </section>
 
 <!-- ABOUT -->
-<section id="about">
-  <h2>About Me</h2>
-  <p class="editable">[My journey started with curiosity — I wanted to build my own game and understand how technology really works.
-
-Since then, I’ve worked with multiple programming languages including Java, C++, Python, and web technologies, continuously improving my skills through practice and real projects.
-
-Today, I focus on building clean, practical, and reliable solutions — from websites to automation and data handling.
-
-I aim to deliver work that is clear, efficient, and built with attention to detail.]</p>
+<section id="about" class="fade">
+  <h2>About</h2>
+  <p>
+    My journey started with curiosity. Today I build real digital solutions.
+  </p>
 </section>
 
 <!-- CONTACT -->
-<section id="contact">
-  <h2>Contact</h2>
-  <p class="editable">[If you’re looking for someone reliable, skilled, and clear in communication — let’s work together.
-
-Available on Fiverr. Fast and professional response guaranteed]</p>
+<section id="contact" class="fade">
+  <h2>Ready to get your website?</h2>
+  <p>Fast response. Clean work. Real results.</p>
+  <a href="#" class="btn">Start Now</a>
 </section>
 
+<!-- STICKY CTA -->
+<a href="#" class="sticky">Start</a>
+
+<!-- MODAL -->
+<div id="modal">
+  <div class="modal-content">
+    <span onclick="closeModal()">✖</span>
+    <h2>Project Details</h2>
+    <p>Details here...</p>
+  </div>
+</div>
+
+<!-- EXIT POPUP -->
+<div id="popup">
+  <div class="popup-box">
+    <h2>Before you go...</h2>
+    <a href="#" class="btn">Start Project</a>
+  </div>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
