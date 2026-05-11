@@ -1,4 +1,4 @@
-body {
+body{
   margin:0;
   font-family:Arial;
   color:white;
@@ -6,37 +6,30 @@ body {
   overflow-x:hidden;
 }
 
-/* Animated BG */
-body::before, body::after{
+/* Glow Background */
+body::before,body::after{
   content:"";
   position:fixed;
   width:600px;
   height:600px;
   border-radius:50%;
-  filter:blur(120px);
+  filter:blur(140px);
   z-index:-1;
 }
-
 body::before{
   background:#7c3aed;
   top:-200px;
   left:-200px;
-  animation:move1 12s infinite alternate;
+  animation:move1 14s infinite alternate;
 }
-
 body::after{
   background:#2563eb;
   bottom:-200px;
   right:-200px;
-  animation:move2 14s infinite alternate;
+  animation:move2 16s infinite alternate;
 }
-
-@keyframes move1{
-  100%{transform:translate(200px,150px);}
-}
-@keyframes move2{
-  100%{transform:translate(-150px,-120px);}
-}
+@keyframes move1{100%{transform:translate(200px,150px);}}
+@keyframes move2{100%{transform:translate(-180px,-120px);}}
 
 /* NAV */
 nav{
@@ -46,6 +39,22 @@ nav{
   justify-content:space-between;
   padding:15px 30px;
   background:rgba(0,0,0,0.7);
+  backdrop-filter:blur(10px);
+  z-index:1000;
+}
+
+.nav-links a{
+  color:white;
+  margin-left:20px;
+  text-decoration:none;
+}
+
+/* HERO */
+.gradient{
+  font-size:50px;
+  background:linear-gradient(90deg,#22c55e,#4ade80,#22c55e);
+  -webkit-background-clip:text;
+  color:transparent;
 }
 
 /* SECTIONS */
@@ -59,41 +68,48 @@ section{
   display:flex;
   gap:20px;
   justify-content:center;
+  flex-wrap:wrap;
 }
 
 /* CARD */
 .card{
   background:#111;
   padding:20px;
+  border-radius:10px;
   cursor:pointer;
-  transition:.3s;
+  transition:0.3s;
 }
 .card:hover{
-  transform:scale(1.05);
+  transform:translateY(-10px) scale(1.05);
 }
 
 /* BUTTON */
 .btn{
   background:#22c55e;
-  padding:12px 20px;
+  padding:12px 25px;
+  border-radius:8px;
   color:black;
   text-decoration:none;
 }
+.btn-outline{
+  border:1px solid white;
+  padding:12px 25px;
+  color:white;
+}
 
-/* MODAL */
+/* MODAL + POPUP */
 #modal,#serviceModal,#popup{
   display:none;
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,0.8);
+  background:rgba(0,0,0,0.85);
 }
-
 .modal-box,.popup-box{
   background:#020617;
-  margin:20% auto;
-  padding:20px;
-  width:300px;
-  text-align:center;
+  margin:15% auto;
+  padding:25px;
+  width:320px;
+  border-radius:10px;
 }
 
 /* STICKY */
@@ -102,7 +118,8 @@ section{
   bottom:20px;
   right:20px;
   background:#22c55e;
-  padding:10px;
+  padding:15px;
+  border-radius:50%;
 }
 
 /* FADE */
