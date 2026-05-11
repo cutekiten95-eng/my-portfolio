@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio</title>
+<title>Conversion Portfolio</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
@@ -20,7 +20,7 @@
     <a href="#home">Home</a>
     <a href="#services">Services</a>
     <a href="#projects">Projects</a>
-    <a href="#about">About</a>
+    <a href="#testimonials">Clients</a>
     <a href="#contact">Contact</a>
   </div>
 </nav>
@@ -28,12 +28,17 @@
 <!-- HERO -->
 <section id="home">
   <h1>Your website shouldn’t just look good — it should bring clients</h1>
-  <p>High-performance websites & tools built to convert visitors into real customers.</p>
+  <p>
+    I build high-performance websites and tools designed to attract attention,
+    build trust, and convert visitors into real customers.
+  </p>
 
   <div class="buttons">
-    <a href="#contact" class="btn">Start Your Project</a>
+    <a href="#contact" class="btn">Start Your Project Now</a>
     <a href="#projects" class="btn-outline">See My Work</a>
   </div>
+
+  <p class="trust">✔ Fast ✔ Custom ✔ Reliable</p>
 </section>
 
 <!-- SERVICES -->
@@ -41,20 +46,28 @@
   <h2>Services</h2>
 
   <div class="grid">
+
     <div class="card" onclick="toggleCard(this)">
       <h3>Website Development</h3>
-      <p class="hidden">Custom websites built from scratch. Fast, clean, optimized.</p>
+      <p class="hidden">
+        Custom-coded websites focused on speed, UX, and conversion.
+      </p>
     </div>
 
     <div class="card" onclick="toggleCard(this)">
       <h3>Python Automation</h3>
-      <p class="hidden">Automate tasks and save time with smart tools.</p>
+      <p class="hidden">
+        Save time by automating repetitive tasks with smart tools.
+      </p>
     </div>
 
     <div class="card" onclick="toggleCard(this)">
       <h3>Data / Excel</h3>
-      <p class="hidden">Organized data for better decisions.</p>
+      <p class="hidden">
+        Transform messy data into structured, usable information.
+      </p>
     </div>
+
   </div>
 </section>
 
@@ -67,14 +80,40 @@
       <h3>Business Website</h3>
       <p>Designed to convert visitors into clients</p>
     </div>
+
+    <div class="card">
+      <h3>Automation Tool</h3>
+      <p>Python tool that saves hours of work</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <h2>What Clients Say</h2>
+
+  <div class="grid">
+    <div class="card">
+      <p>"Very professional work. Fast delivery and clean result."</p>
+      <strong>- Client</strong>
+    </div>
+
+    <div class="card">
+      <p>"The website brought me real customers."</p>
+      <strong>- Business Owner</strong>
+    </div>
   </div>
 </section>
 
 <!-- ABOUT -->
 <section id="about">
   <h2>About</h2>
+
   <p>
 My journey started with curiosity — I wanted to build my own game and understand how technology works.
+  </p>
+
+  <p>
 Today, I create real solutions: websites, automation tools, and data systems.
   </p>
 </section>
@@ -82,14 +121,17 @@ Today, I create real solutions: websites, automation tools, and data systems.
 <!-- CONTACT -->
 <section id="contact">
   <h2>Let’s Work Together</h2>
-  <p>Serious about your project? Let’s build something powerful.</p>
+
+  <p>
+If you’re serious about your project — I’m ready to help you build something powerful.
+  </p>
 
   <a href="https://www.fiverr.com/" target="_blank" class="btn">
     Contact Me on Fiverr
   </a>
 </section>
 
-<!-- STICKY BUTTON -->
+<!-- STICKY CTA -->
 <a href="#contact" class="sticky">Start</a>
 
 <!-- MODAL -->
@@ -98,6 +140,15 @@ Today, I create real solutions: websites, automation tools, and data systems.
     <span onclick="closeModal()">✖</span>
     <h2>Project Details</h2>
     <p>High-performance website focused on UX and conversion.</p>
+  </div>
+</div>
+
+<!-- EXIT POPUP -->
+<div id="popup">
+  <div class="popup-box">
+    <h2>Wait! Before you go...</h2>
+    <p>Let’s build your project today.</p>
+    <a href="#contact" class="btn">Start Now</a>
   </div>
 </div>
 
