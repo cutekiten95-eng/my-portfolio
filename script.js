@@ -23,12 +23,13 @@ function closeModal(){
 
 // service modal
 function openService(type){
-  const text={
-    web:"Custom websites that convert visitors into clients",
-    python:"Automation tools to save time",
-    data:"Clean and structured data"
+  const data={
+    web:"Custom websites built to convert visitors into clients.",
+    python:"Automation tools to save time and increase efficiency.",
+    data:"Clean and structured data ready for real decisions.",
+    translate:"Professional translation (AR / FR / EN / DE)."
   };
-  document.getElementById("serviceText").innerText=text[type];
+  document.getElementById("serviceText").innerText=data[type];
   document.getElementById("serviceModal").style.display="block";
 }
 function closeService(){
@@ -44,7 +45,7 @@ document.addEventListener("mouseout",e=>{
   }
 });
 
-// language
+// language (basic)
 function setLang(lang){
-  alert("Language switched: "+lang);
+  alert("Language: "+lang);
 }
