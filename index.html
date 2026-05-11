@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ultimate Portfolio</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ultimate Portfolio</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+<!-- LOADER -->
 <div id="loader">Loading...</div>
 
+<!-- NAV -->
 <nav>
   <h2>MyBrand</h2>
 
@@ -32,11 +34,11 @@
 <!-- HERO -->
 <section id="home" class="fade">
   <h1 class="gradient" data-key="title">
-    Your website shouldn’t just exist — it should bring clients
+    Get more clients with a website built to convert
   </h1>
 
   <p data-key="desc">
-    High-performance websites & tools built to attract, build trust, and convert.
+    No templates. No guesswork. Just real results for your business.
   </p>
 
   <div class="buttons">
@@ -44,7 +46,11 @@
     <a href="#projects" class="btn-outline" data-key="cta2">See Work</a>
   </div>
 
-  <p class="trust" data-key="trust">✔ Fast ✔ Custom ✔ Results</p>
+  <div class="trust-bar">
+    <span>✔ Fast Delivery</span>
+    <span>✔ Clean Code</span>
+    <span>✔ Client-Focused</span>
+  </div>
 </section>
 
 <!-- SERVICES -->
@@ -52,21 +58,27 @@
   <h2 data-key="servicesTitle">Services</h2>
 
   <div class="grid">
-    <div class="card" onclick="openService('web')" data-key="service1">
-      Website Development
+
+    <div class="card" onclick="openService('web')">
+      <h3>Get More Clients Online</h3>
+      <p>Websites designed to convert visitors into customers.</p>
     </div>
 
-    <div class="card" onclick="openService('python')" data-key="service2">
-      Python Automation
+    <div class="card" onclick="openService('python')">
+      <h3>Save Hours Every Week</h3>
+      <p>Automation tools that eliminate repetitive work.</p>
     </div>
 
-    <div class="card" onclick="openService('data')" data-key="service3">
-      Data / Excel
+    <div class="card" onclick="openService('data')">
+      <h3>Turn Data Into Decisions</h3>
+      <p>Clean, structured data for better decisions.</p>
     </div>
 
-    <div class="card" onclick="openService('translate')" data-key="service4">
-      Translation
+    <div class="card" onclick="openService('translate')">
+      <h3>Professional Translation</h3>
+      <p>Arabic, French, English, German — clear & natural.</p>
     </div>
+
   </div>
 </section>
 
@@ -75,37 +87,56 @@
   <h2 data-key="projectsTitle">Projects</h2>
 
   <div class="grid">
-    <div class="card" onclick="openModal()" data-key="project1">
-      Business Website
+
+    <div class="card" onclick="openModal()">
+      <h3>Business Website</h3>
+      <p>+40% more client inquiries with a conversion-focused design.</p>
     </div>
 
-    <div class="card" data-key="project2">
-      Automation Tool
+    <div class="card">
+      <h3>Automation Tool</h3>
+      <p>Reduced manual work by 70% using Python automation.</p>
     </div>
+
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="fade">
+  <h2>Client Feedback</h2>
+
+  <div class="grid">
+
+    <div class="card">
+      <p>"Fast, clean, and very professional work. Highly recommended."</p>
+    </div>
+
+    <div class="card">
+      <p>"The website actually helped me get more clients. Great experience."</p>
+    </div>
+
   </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact" class="fade">
-  <h2 data-key="contactTitle">Let’s Build Something Powerful</h2>
+  <h2 data-key="contactTitle">Ready to get more clients?</h2>
 
   <p data-key="contactDesc">
-    If you're serious about results — I'm ready.
+    If you're serious about results, let’s build something that works.
   </p>
 
   <a href="https://www.fiverr.com/" target="_blank" class="btn" data-key="contactBtn">
-    Contact Me Now
+    Start Your Project Now
   </a>
 </section>
 
-<!-- MODAL -->
+<!-- MODAL PROJECT -->
 <div id="modal">
   <div class="modal-box">
     <span onclick="closeModal()">✖</span>
-    <h2 data-key="modalTitle">Project Details</h2>
-    <p data-key="modalDesc">
-      High-converting website built for real business results.
-    </p>
+    <h2>Project Details</h2>
+    <p>High-converting website built to generate real clients.</p>
   </div>
 </div>
 
@@ -116,22 +147,28 @@
     <p id="serviceText"></p>
   </div>
 </div>
+
 <!-- POPUP -->
 <div id="popup">
   <div class="popup-box">
-    <span onclick="closePopup()" style="cursor:pointer;">✖</span>
+    <span onclick="closePopup()">✖</span>
 
-    <h2 data-key="popupTitle">Wait… don’t leave yet</h2>
+    <h2 data-key="popupTitle">Wait… before you leave</h2>
+
     <p data-key="popupDesc">
-      You’re one step away from a better website.
+      Most visitors leave without taking action. Don’t miss your chance.
     </p>
 
-    <a href="#contact" class="btn" data-key="popupBtn" onclick="closePopup()">Start Now</a>
+    <a href="#contact" class="btn" onclick="closePopup()" data-key="popupBtn">
+      Start Now
+    </a>
   </div>
-</div> <!-- 🔥 هادي كانت ناقصة -->
+</div>
 
-<!-- STICKY -->
-<a href="#contact" class="sticky" data-key="sticky">Start</a>
+<!-- STICKY CTA -->
+<a href="#contact" class="sticky" data-key="sticky">
+  Start Now
+</a>
 
 <script src="script.js"></script>
 </body>
