@@ -1,66 +1,73 @@
-document.addEventListener("DOMContentLoaded",()=>{
+document.addEventListener("DOMContentLoaded", function(){
 
 // loader
-setTimeout(()=>{
-document.getElementById("loader").style.display="none";
+setTimeout(function(){
+  const loader = document.getElementById("loader");
+  if(loader) loader.style.display="none";
 },800);
 
 // fade
 const fades=document.querySelectorAll(".fade");
-window.addEventListener("scroll",()=>{
-fades.forEach(el=>{
-if(el.getBoundingClientRect().top < window.innerHeight-100){
-el.classList.add("show");
-}
-});
+
+window.addEventListener("scroll", function(){
+  fades.forEach(function(el){
+    if(el.getBoundingClientRect().top < window.innerHeight-100){
+      el.classList.add("show");
+    }
+  });
 });
 
 // popup
 let shown=false;
-document.addEventListener("mouseout",(e)=>{
-if(!shown && e.clientY<=0){
-document.getElementById("popup").style.display="flex";
-shown=true;
-}
+
+document.addEventListener("mouseout", function(e){
+  if(!shown && e.clientY<=0){
+    const popup=document.getElementById("popup");
+    if(popup) popup.style.display="flex";
+    shown=true;
+  }
 });
 
-// sticky text change
+// sticky
 const sticky=document.getElementById("sticky");
-window.addEventListener("scroll",()=>{
-if(window.scrollY>500){
-sticky.innerText="Get Offer";
-}else{
-sticky.innerText="Start";
-}
+
+window.addEventListener("scroll", function(){
+  if(window.scrollY>400){
+    sticky.innerText="Get Offer";
+  }else{
+    sticky.innerText="Start";
+  }
 });
 
-// fake notifications
-setInterval(()=>{
-const notif=document.getElementById("notif");
-notif.style.display="block";
-setTimeout(()=>notif.style.display="none",3000);
+// notifications
+setInterval(function(){
+  const notif=document.getElementById("notif");
+  if(notif){
+    notif.style.display="block";
+    setTimeout(()=>notif.style.display="none",3000);
+  }
 },8000);
 
 // countdown
 let time=300;
-setInterval(()=>{
-time--;
-document.getElementById("timer").innerText=time+"s";
+
+setInterval(function(){
+  const t=document.getElementById("timer");
+  if(t){
+    t.innerText="Offer ends in "+time+"s";
+    time--;
+  }
 },1000);
 
-// form → WhatsApp
-document.getElementById("form").addEventListener("submit",(e)=>{
-e.preventDefault();
-
-let name=e.target[0].value;
-let msg=e.target[2].value;
-
-let url=`https://wa.me/212XXXXXXXXX?text=Hello I am ${name} - ${msg}`;
-window.open(url,"_blank");
+// form
+document.getElementById("form").addEventListener("submit", function(e){
+  e.preventDefault();
+  alert("Message sent!");
 });
 
 });
 
 function closePopup(){
-document.getElementById("popup").style.display="none";
+  const popup=document.getElementById("popup");
+  if(popup) popup.style.display="none";
 }
