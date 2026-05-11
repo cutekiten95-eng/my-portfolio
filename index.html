@@ -3,9 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Get More Clients</title>
-<meta name="description" content="Websites built to bring real clients.">
-
+<title>Conversion Machine</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
@@ -15,129 +13,110 @@
 
 <nav>
   <h2>MyBrand</h2>
-
   <div class="nav-links">
     <a href="#home">Home</a>
     <a href="#services">Services</a>
-    <a href="#projects">Projects</a>
     <a href="#pricing">Pricing</a>
     <a href="#contact">Contact</a>
   </div>
 </nav>
 
+<!-- HERO -->
 <section id="home" class="fade">
-
   <h1 class="gradient">
-    Turn your website into a client-generating machine
+    Get clients, not just a website
   </h1>
 
-  <p>
-    I build fast websites designed to convert visitors into real customers.
-  </p>
-
-  <div class="proof">
-    <span>+40% more leads</span>
-    <span>70% time saved</span>
-  </div>
+  <p>High-converting websites designed to turn visitors into buyers.</p>
 
   <div class="buttons">
-    <a href="#contact" class="btn primary">💰 Get My Website</a>
-    <a href="#projects" class="btn-outline">See Results</a>
+    <a href="#contact" class="btn primary">Start Now</a>
+    <a href="#pricing" class="btn-outline">View Pricing</a>
   </div>
 
+  <div class="trust-bar">
+    <span>✔ Fast Delivery</span>
+    <span>✔ Clean Code</span>
+    <span>✔ Real Results</span>
+  </div>
 </section>
 
+<!-- SERVICES -->
 <section id="services" class="fade">
-  <h2>Services</h2>
-
-  <div class="grid">
-
-    <div class="card" onclick="openService('web')">
-      <h3>Get More Clients</h3>
-      <p>High-converting websites.</p>
-    </div>
-
-    <div class="card" onclick="openService('python')">
-      <h3>Save Time</h3>
-      <p>Automation tools.</p>
-    </div>
-
-    <div class="card" onclick="openService('data')">
-      <h3>Better Decisions</h3>
-      <p>Clean data.</p>
-    </div>
-
-  </div>
+<h2>What You Get</h2>
+<div class="grid">
+<div class="card">Websites that convert visitors</div>
+<div class="card">Automation tools</div>
+<div class="card">Data solutions</div>
+</div>
 </section>
 
-<section id="projects" class="fade">
-  <h2>Case Studies</h2>
-
-  <div class="grid">
-    <div class="card">
-      <h3>Business Website</h3>
-      <p>+40% more clients</p>
-    </div>
-
-    <div class="card">
-      <h3>Automation Tool</h3>
-      <p>Saved 70% time</p>
-    </div>
-  </div>
-</section>
-
+<!-- PRICING -->
 <section id="pricing" class="fade">
-  <h2>Pricing</h2>
+<h2>Choose Your Plan</h2>
 
-  <div class="grid">
+<div id="countdown">Offer ends in: <span id="timer"></span></div>
 
-    <div class="card">
-      <h3>Basic</h3>
-      <p>$50</p>
-    </div>
+<div class="grid">
 
-    <div class="card featured">
-      <h3>Pro</h3>
-      <p>$120</p>
-    </div>
+<div class="card">
+<h3>Starter</h3>
+<p>$49</p>
+<p>Basic site</p>
+</div>
 
-    <div class="card">
-      <h3>Premium</h3>
-      <p>$250</p>
-    </div>
+<div class="card featured">
+<h3>Pro</h3>
+<p>$99</p>
+<p>Best conversion system</p>
+</div>
 
-  </div>
+<div class="card">
+<h3>Premium</h3>
+<p>$199</p>
+<p>Full business machine</p>
+</div>
+
+</div>
+
+<p class="scarcity">⚠ Only 3 spots left</p>
 </section>
 
+<!-- TESTIMONIALS -->
+<section class="fade">
+<h2>Real Results</h2>
+<div class="grid">
+<div class="card">"Got clients in 10 days"</div>
+<div class="card">"Best decision I made"</div>
+</div>
+</section>
+
+<!-- FORM -->
 <section id="contact" class="fade">
-  <h2>Start Your Project</h2>
+<h2>Start Your Project</h2>
 
-  <form id="contactForm">
-    <input type="text" placeholder="Name" required>
-    <input type="email" placeholder="Email" required>
-    <textarea placeholder="Your project"></textarea>
-
-    <button class="btn primary">Send Request</button>
-  </form>
+<form id="form">
+<input type="text" placeholder="Name" required>
+<input type="email" placeholder="Email" required>
+<textarea placeholder="Your project"></textarea>
+<button class="btn primary">Send</button>
+</form>
 </section>
 
-<div id="serviceModal">
-  <div class="modal-box">
-    <span onclick="closeService()">✖</span>
-    <p id="serviceText"></p>
-  </div>
-</div>
-
+<!-- POPUP -->
 <div id="popup">
-  <div class="popup-box">
-    <span onclick="closePopup()">✖</span>
-    <h2>Wait…</h2>
-    <p>You might be losing clients every day.</p>
-    <a href="#contact" class="btn" onclick="closePopup()">Start Now</a>
-  </div>
+<div class="popup-box">
+<h2>Wait…</h2>
+<p>You’re one step away from clients</p>
+<a href="#contact" class="btn" onclick="closePopup()">Start Now</a>
+</div>
 </div>
 
-<a href="#contact" class="sticky">🚀 Start</a>
+<!-- FAKE NOTIFICATION -->
+<div id="notif">Someone just ordered 🔥</div>
+
+<!-- STICKY -->
+<a href="#contact" id="sticky">Start</a>
 
 <script src="script.js"></script>
 </body>
