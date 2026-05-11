@@ -1,369 +1,124 @@
-/* =======================
-🔥 BASE
-======================= */
-html{
-  scroll-behavior:smooth;
-}
-
 body{
-  margin:0;
-  font-family:Arial, sans-serif;
-  color:white;
-  background:#020617;
-  overflow-x:hidden;
-  padding-top:70px;
+margin:0;
+font-family:Arial;
+background:#020617;
+color:white;
+padding-top:70px;
 }
 
-
-/* =======================
-🌌 GLOW BACKGROUND
-======================= */
-body::before,
-body::after{
-  content:"";
-  position:fixed;
-  width:600px;
-  height:600px;
-  border-radius:50%;
-  filter:blur(150px);
-  z-index:-1;
-}
-
-body::before{
-  background:#7c3aed;
-  top:-200px;
-  left:-200px;
-  animation:float1 15s infinite alternate;
-}
-
-body::after{
-  background:#2563eb;
-  bottom:-200px;
-  right:-200px;
-  animation:float2 18s infinite alternate;
-}
-
-@keyframes float1{
-  100%{transform:translate(200px,150px);}
-}
-@keyframes float2{
-  100%{transform:translate(-150px,-120px);}
-}
-
-
-/* =======================
-🧭 NAVBAR
-======================= */
 nav{
-  position:fixed;
-  top:0;
-  width:100%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:15px 30px;
-  background:rgba(0,0,0,0.7);
-  backdrop-filter:blur(10px);
-  z-index:1000;
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+padding:15px;
+background:rgba(0,0,0,0.7);
+z-index:1000;
 }
 
-.nav-links a{
-  color:white;
-  margin-left:20px;
-  text-decoration:none;
-  position:relative;
-  font-weight:500;
-}
-
-/* underline hover */
-.nav-links a::after{
-  content:"";
-  position:absolute;
-  left:0;
-  bottom:-5px;
-  width:0%;
-  height:2px;
-  background:#22c55e;
-  transition:0.3s;
-}
-.nav-links a:hover::after{
-  width:100%;
-}
-
-
-/* =======================
-🔥 HERO
-======================= */
-.gradient{
-  font-size:50px;
-  background:linear-gradient(90deg,#22c55e,#4ade80,#22c55e);
-  background-size:200%;
-  -webkit-background-clip:text;
-  color:transparent;
-  animation:glowText 4s linear infinite;
-}
-
-@keyframes glowText{
-  0%{background-position:0%;}
-  100%{background-position:200%;}
-}
-
-
-/* =======================
-📦 SECTIONS
-======================= */
 section{
-  padding:120px 20px;
-  text-align:center;
+padding:100px 20px;
+text-align:center;
 }
 
-
-/* =======================
-🔥 BUTTONS AREA FIX
-======================= */
-.buttons{
-  margin-top:25px;
-  display:flex;
-  justify-content:center;
-  gap:15px;
-  flex-wrap:wrap;
+.gradient{
+font-size:45px;
+background:linear-gradient(90deg,#22c55e,#4ade80);
+-webkit-background-clip:text;
+color:transparent;
 }
 
-
-/* =======================
-✅ TRUST BAR
-======================= */
-.trust-bar{
-  margin-top:30px;
-  display:flex;
-  justify-content:center;
-  gap:15px;
-  flex-wrap:wrap;
-  font-size:13px;
-  opacity:0.85;
-}
-
-.trust-bar span{
-  background:rgba(255,255,255,0.05);
-  padding:6px 12px;
-  border-radius:20px;
-  transition:0.3s;
-}
-
-.trust-bar span:hover{
-  background:rgba(255,255,255,0.1);
-}
-
-
-/* =======================
-📊 GRID
-======================= */
 .grid{
-  display:flex;
-  gap:20px;
-  justify-content:center;
-  flex-wrap:wrap;
+display:flex;
+gap:20px;
+justify-content:center;
+flex-wrap:wrap;
 }
 
-
-/* =======================
-💳 CARDS
-======================= */
 .card{
-  background:#111;
-  padding:20px;
-  border-radius:12px;
-  cursor:pointer;
-  transition:0.3s;
-  width:250px;
-  position:relative;
-  overflow:hidden;
-}
-
-.card::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(120deg,transparent,rgba(255,255,255,0.05),transparent);
-  opacity:0;
-  transition:0.3s;
-}
-
-.card:hover::before{
-  opacity:1;
+background:#111;
+padding:20px;
+border-radius:10px;
+transition:0.3s;
 }
 
 .card:hover{
-  transform:translateY(-10px) scale(1.05);
-  box-shadow:0 20px 40px rgba(0,0,0,0.6);
+transform:scale(1.05);
 }
 
-.card:active{
-  transform:scale(0.98);
+.featured{
+border:2px solid #22c55e;
 }
 
-
-/* =======================
-🔘 BUTTONS
-======================= */
 .btn{
-  background:linear-gradient(45deg,#22c55e,#4ade80);
-  padding:12px 25px;
-  border-radius:8px;
-  color:black;
-  text-decoration:none;
-  font-weight:bold;
-  transition:0.3s;
-  box-shadow:0 5px 20px rgba(34,197,94,0.4);
+background:#22c55e;
+padding:12px 20px;
+border-radius:8px;
+color:black;
+text-decoration:none;
+display:inline-block;
 }
 
-.btn:hover{
-  transform:scale(1.07);
-  box-shadow:0 10px 30px rgba(34,197,94,0.6);
+.primary{
+animation:pulse 2s infinite;
 }
 
-.btn:active{
-  transform:scale(0.95);
+@keyframes pulse{
+0%{box-shadow:0 0 0 0 rgba(34,197,94,0.7);}
+70%{box-shadow:0 0 0 15px rgba(34,197,94,0);}
+100%{box-shadow:0 0 0 0 rgba(34,197,94,0);}
 }
 
-.btn-outline{
-  border:1px solid white;
-  padding:12px 25px;
-  color:white;
-  border-radius:8px;
-  text-decoration:none;
-  transition:0.3s;
+.scarcity{
+color:red;
+margin-top:20px;
 }
 
-.btn-outline:hover{
-  background:white;
-  color:black;
-}
-
-
-/* =======================
-🪟 MODAL + POPUP
-======================= */
-#modal,
-#serviceModal,
 #popup{
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.85);
-  z-index:2000;
-  justify-content:center;
-  align-items:center;
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,0.8);
+justify-content:center;
+align-items:center;
 }
 
-.modal-box,
 .popup-box{
-  background:#020617;
-  padding:25px;
-  width:320px;
-  border-radius:12px;
-  text-align:center;
-  animation:pop 0.3s ease;
+background:#020617;
+padding:20px;
 }
 
-@keyframes pop{
-  from{transform:scale(0.8); opacity:0;}
-  to{transform:scale(1); opacity:1;}
+#notif{
+position:fixed;
+bottom:20px;
+left:20px;
+background:#111;
+padding:10px;
+display:none;
 }
 
-
-/* =======================
-📌 STICKY CTA
-======================= */
-.sticky{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:linear-gradient(45deg,#22c55e,#4ade80);
-  padding:15px 20px;
-  border-radius:50px;
-  font-weight:bold;
-  color:black;
-  text-decoration:none;
-  box-shadow:0 0 20px rgba(34,197,94,0.6);
-  z-index:999;
-  transition:0.3s;
+#sticky{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#22c55e;
+padding:15px;
+color:black;
 }
 
-.sticky:hover{
-  transform:scale(1.1);
-}
-
-.sticky:active{
-  transform:scale(0.95);
-}
-
-
-/* =======================
-✨ FADE
-======================= */
 .fade{
-  opacity:0;
-  transform:translateY(40px);
-  transition:1s;
+opacity:0;
+transform:translateY(40px);
+transition:1s;
 }
 
 .fade.show{
-  opacity:1;
-  transform:translateY(0);
+opacity:1;
+transform:translateY(0);
 }
 
-
-/* =======================
-⏳ LOADER
-======================= */
-#loader{
-  position:fixed;
-  inset:0;
-  background:#020617;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  z-index:9999;
-  animation:hideLoader 1.5s forwards;
-}
-
-@keyframes hideLoader{
-  100%{
-    opacity:0;
-    visibility:hidden;
-  }
-}
-
-
-/* =======================
-📱 MOBILE
-======================= */
-@media(max-width:768px){
-
-  .gradient{
-    font-size:30px;
-  }
-
-  .buttons{
-    flex-direction:column;
-  }
-
-  .grid{
-    flex-direction:column;
-    align-items:center;
-  }
-
-  .card{
-    width:90%;
-  }
-
-  section{
-    padding:60px 15px;
-  }
-
-  body::before,
-  body::after{
-    display:none;
-  }
+#countdown{
+margin-bottom:20px;
+color:#f87171;
 }
