@@ -1,73 +1,69 @@
-document.addEventListener("DOMContentLoaded", function(){
+document.addEventListener("DOMContentLoaded", () => {
 
-// loader
-setTimeout(function(){
-  const loader = document.getElementById("loader");
-  if(loader) loader.style.display="none";
-},800);
+  /* 🔥 Sticky CTA text change */
+  const sticky = document.getElementById("stickyCTA");
 
-// fade
-const fades=document.querySelectorAll(".fade");
+  window.addEventListener("scroll", () => {
+    let y = window.scrollY;
 
-window.addEventListener("scroll", function(){
-  fades.forEach(function(el){
-    if(el.getBoundingClientRect().top < window.innerHeight-100){
-      el.classList.add("show");
-    }
+    if (y < 300) sticky.textContent = "Start Now";
+    else if (y < 800) sticky.textContent = "Get Offer";
+    else sticky.textContent = "Get Clients Now";
   });
-});
 
-// popup
-let shown=false;
+  /* 🔔 Fake notifications */
+  const notif = document.getElementById("notif");
 
-document.addEventListener("mouseout", function(e){
-  if(!shown && e.clientY<=0){
-    const popup=document.getElementById("popup");
-    if(popup) popup.style.display="flex";
-    shown=true;
+  setInterval(() => {
+    notif.style.display = "block";
+    setTimeout(() => notif.style.display = "none", 3000);
+  }, 8000);
+
+  /* 😈 Exit popup */
+  const popup = document.getElementById("exitPopup");
+  const close = document.getElementById("closePopup");
+
+  document.addEventListener("mouseleave", e => {
+    if (e.clientY < 10) popup.style.display = "block";
+  });
+
+  if (close) {
+    close.addEventListener("click", () => {
+      popup.style.display = "none";
+    });
   }
-});
 
-// sticky
-const sticky=document.getElementById("sticky");
+  /* ⏳ Countdown */
+  const countdown = document.getElementById("countdown");
+  let time = 3600;
 
-window.addEventListener("scroll", function(){
-  if(window.scrollY>400){
-    sticky.innerText="Get Offer";
-  }else{
-    sticky.innerText="Start";
-  }
-});
-
-// notifications
-setInterval(function(){
-  const notif=document.getElementById("notif");
-  if(notif){
-    notif.style.display="block";
-    setTimeout(()=>notif.style.display="none",3000);
-  }
-},8000);
-
-// countdown
-let time=300;
-
-setInterval(function(){
-  const t=document.getElementById("timer");
-  if(t){
-    t.innerText="Offer ends in "+time+"s";
+  setInterval(() => {
     time--;
+    let m = Math.floor(time / 60);
+    let s = time % 60;
+    countdown.textContent = `Offer ends in ${m}:${s}`;
+  }, 1000);
+
+  /* 🌍 Multi language */
+  const translations = {
+    en: { hero_title: "Get More Clients" },
+    fr: { hero_title: "Obtenez plus de clients" },
+    ar: { hero_title: "احصل على المزيد من العملاء" },
+    de: { hero_title: "Mehr Kunden gewinnen" }
+  };
+
+  const langSelect = document.getElementById("lang");
+
+  if (langSelect) {
+    langSelect.addEventListener("change", () => {
+      const lang = langSelect.value;
+      document.querySelectorAll("[data-key]").forEach(el => {
+        const key = el.dataset.key;
+        if (translations[lang][key]) {
+          el.textContent = translations[lang][key];
+        }
+      });
+    });
   }
-},1000);
-
-// form
-document.getElementById("form").addEventListener("submit", function(e){
-  e.preventDefault();
-  alert("Message sent!");
-});
 
 });
-
-function closePopup(){
-  const popup=document.getElementById("popup");
-  if(popup) popup.style.display="none";
-}
