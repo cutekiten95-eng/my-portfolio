@@ -3,86 +3,133 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Conversion Machine</title>
-<link rel="stylesheet" href="style.css">
-</head>
+<title>Get More Clients</title>
 
+<link rel="stylesheet" href="style.css">
+
+</head>
 <body>
 
-<div id="loader">Loading...</div>
-
-<nav>
-  <h2>MyBrand</h2>
-  <div class="nav-links">
-    <a href="#home">Home</a>
-    <a href="#services">Services</a>
-    <a href="#pricing">Pricing</a>
-    <a href="#contact">Contact</a>
+<!-- 🔝 NAV -->
+<nav id="navbar">
+  <div class="logo">⚡</div>
+  <div class="links">
+    <a href="#home" data-key="nav_home">Home</a>
+    <a href="#services" data-key="nav_services">Services</a>
+    <a href="#pricing" data-key="nav_pricing">Pricing</a>
+    <a href="#contact" data-key="nav_contact">Contact</a>
   </div>
+
+  <!-- 🌍 Language -->
+  <select id="lang">
+    <option value="en">EN</option>
+    <option value="fr">FR</option>
+    <option value="ar">AR</option>
+    <option value="de">DE</option>
+  </select>
 </nav>
 
-<section id="home" class="fade">
-  <h1 class="gradient">Get clients, not just a website</h1>
-  <p>High-converting websites designed to turn visitors into buyers.</p>
+<!-- 🏠 HERO -->
+<section id="home">
+  <h1 data-key="hero_title">Get More Clients. Stop Losing Money.</h1>
+  <p data-key="hero_sub">I turn your website into a client machine.</p>
 
-  <div class="buttons">
-    <a href="#contact" class="btn primary">Start Now</a>
-    <a href="#pricing" class="btn-outline">View Pricing</a>
+  <div class="trust">
+    ✔ Fast ✔ Results ✔ Proven
   </div>
 
-  <div class="trust-bar">
-    <span>✔ Fast Delivery</span>
-    <span>✔ Clean Code</span>
-    <span>✔ Real Results</span>
+  <button class="cta" id="mainCTA">Get Clients Now</button>
+</section>
+
+<!-- 💳 SERVICES -->
+<section id="services">
+  <h2>Services</h2>
+  <div class="grid">
+
+    <div class="card">
+      <h3>🚀 Get More Clients Online</h3>
+      <p>High-converting websites</p>
+    </div>
+
+    <div class="card">
+      <h3>📊 Turn Data Into Decisions</h3>
+      <p>Data analysis & automation</p>
+    </div>
+
+    <div class="card">
+      <h3>🌍 Reach Global Clients</h3>
+      <p>AR / FR / EN / DE translation</p>
+    </div>
+
   </div>
 </section>
 
-<section id="services" class="fade">
-<h2>Services</h2>
-<div class="grid">
-<div class="card">Website</div>
-<div class="card">Automation</div>
-<div class="card">Data</div>
-</div>
+<!-- 📊 PROOF -->
+<section>
+  <h2>Results</h2>
+  <div class="grid">
+    <div class="card">+40% Clients</div>
+    <div class="card">20h Saved</div>
+    <div class="card">Trusted by clients</div>
+  </div>
 </section>
 
-<section id="pricing" class="fade">
-<h2>Pricing</h2>
+<!-- 💰 PRICING -->
+<section id="pricing">
+  <h2>Pricing</h2>
+  <div class="grid">
 
-<p id="timer"></p>
+    <div class="card">
+      <h3>Starter</h3>
+      <p>$50</p>
+    </div>
 
-<div class="grid">
-<div class="card">Starter - $49</div>
-<div class="card featured">Pro - $99</div>
-<div class="card">Premium - $199</div>
-</div>
+    <div class="card featured">
+      <h3>Pro 🔥</h3>
+      <p>$120</p>
+      <span class="badge">Most Popular</span>
+    </div>
 
-<p class="scarcity">⚠ Only 3 spots left</p>
+    <div class="card">
+      <h3>Premium</h3>
+      <p>$250</p>
+    </div>
+
+  </div>
+
+  <div id="countdown"></div>
 </section>
 
-<section id="contact" class="fade">
-<h2>Contact</h2>
+<!-- 📩 CONTACT -->
+<section id="contact">
+  <h2>Contact</h2>
 
-<form id="form">
-<input type="text" placeholder="Name" required>
-<input type="email" placeholder="Email" required>
-<textarea placeholder="Project"></textarea>
-<button type="submit" class="btn">Send</button>
-</form>
+  <form>
+    <input type="text" placeholder="Name">
+    <input type="email" placeholder="Email">
+    <textarea placeholder="Message"></textarea>
 
+    <!-- 🟢 حط هنا رقمك -->
+    <a href="#" class="cta">WhatsApp</a>
+  </form>
 </section>
 
-<div id="popup">
-<div class="popup-box">
-<h2>Wait...</h2>
-<a href="#contact" onclick="closePopup()" class="btn">Start</a>
-</div>
-</div>
+<!-- 📌 STICKY -->
+<button id="stickyCTA">Start Now</button>
 
-<div id="notif">Someone just ordered 🔥</div>
+<!-- 🔔 NOTIF -->
+<div id="notif">Someone just booked 🔥</div>
 
-<a href="#contact" id="sticky">Start</a>
+<!-- 😈 EXIT -->
+<div id="exitPopup">
+  <div class="popup">
+    <p>Wait... before you leave 👀</p>
+    <button class="cta">Get Clients Now</button>
+    <span id="closePopup">X</span>
+  </div>
+</div>
 
 <script src="script.js"></script>
+
 </body>
 </html>
