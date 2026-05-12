@@ -1,48 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Get Clients</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get More Clients</title>
+  <meta name="description" content="Get more clients with high-converting websites, data solutions, and multilingual services.">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<nav>
-  <div class="logo">⚡</div>
+<header>
+  <nav aria-label="Main Navigation">
+    <div class="logo">⚡</div>
 
-  <div class="links">
-    <a href="#home" data-key="nav_home">Home</a>
-    <a href="#about" data-key="nav_about">About</a>
-    <a href="#services" data-key="nav_services">Services</a>
-    <a href="#proof" data-key="nav_proof">Results</a>
-    <a href="#contact" data-key="nav_contact">Contact</a>
-  </div>
+    <ul class="links">
+      <li><a href="#home" data-key="nav_home">Home</a></li>
+      <li><a href="#about" data-key="nav_about">About</a></li>
+      <li><a href="#services" data-key="nav_services">Services</a></li>
+      <li><a href="#proof" data-key="nav_proof">Results</a></li>
+      <li><a href="#contact" data-key="nav_contact">Contact</a></li>
+    </ul>
 
-  <select id="lang">
-    <option value="en">EN</option>
-    <option value="fr">FR</option>
-    <option value="ar">AR</option>
-    <option value="de">DE</option>
-  </select>
-</nav>
+    <label for="lang" class="visually-hidden">Language</label>
+    <select id="lang" name="language">
+      <option value="en">English</option>
+      <option value="fr">Français</option>
+      <option value="ar">العربية</option>
+      <option value="de">Deutsch</option>
+    </select>
+  </nav>
+</header>
+
+<main>
 
 <!-- HERO -->
 <section id="home">
   <h1 data-key="hero_title">Get More Clients. Stop Losing Money.</h1>
   <p data-key="hero_sub">I build websites that bring you real clients.</p>
 
-  <div class="trust" data-key="trust">✔ Fast ✔ Results ✔ Proven</div>
+  <p class="trust" data-key="trust">✔ Fast ✔ Results ✔ Proven</p>
 
-  <button class="cta">Get Clients Now</button>
+  <button type="button" class="cta">Get Clients Now</button>
 </section>
 
 <!-- ABOUT -->
 <section id="about">
   <h2 data-key="about_title">About Me</h2>
   <p data-key="about_text">
-    I help businesses grow by creating high-converting websites, smart data solutions, and multilingual communication strategies.
+    I help businesses grow with high-converting websites, smart data solutions, and multilingual strategies.
   </p>
 </section>
 
@@ -51,20 +57,22 @@
   <h2 data-key="services_title">Services</h2>
 
   <div class="grid">
-    <div class="card">
+
+    <article class="card">
       <h3 data-key="s1">Get More Clients Online</h3>
-      <p data-key="s1d">High converting websites</p>
-    </div>
+      <p data-key="s1d">High-converting websites designed to generate leads.</p>
+    </article>
 
-    <div class="card">
+    <article class="card">
       <h3 data-key="s2">Turn Data Into Decisions</h3>
-      <p data-key="s2d">Data & automation</p>
-    </div>
+      <p data-key="s2d">Data analysis and automation to save time.</p>
+    </article>
 
-    <div class="card">
+    <article class="card">
       <h3 data-key="s3">Reach Global Clients</h3>
-      <p data-key="s3d">AR / FR / EN / DE</p>
-    </div>
+      <p data-key="s3d">Translation in AR / FR / EN / DE.</p>
+    </article>
+
   </div>
 </section>
 
@@ -73,15 +81,15 @@
   <h2 data-key="proof_title">Results</h2>
 
   <div class="grid">
-    <div class="card">+40% Clients</div>
-    <div class="card">20h Saved</div>
-    <div class="card">100% Satisfaction</div>
+    <article class="card">+40% Clients</article>
+    <article class="card">20h Saved</article>
+    <article class="card">100% Satisfaction</article>
   </div>
 
   <div class="grid">
-    <div class="card">“Amazing work!”</div>
-    <div class="card">“Got real clients!”</div>
-    <div class="card">“Highly recommended”</div>
+    <article class="card">“Amazing work!”</article>
+    <article class="card">“Got real clients!”</article>
+    <article class="card">“Highly recommended”</article>
   </div>
 </section>
 
@@ -89,31 +97,53 @@
 <section id="contact">
   <h2 data-key="contact_title">Contact</h2>
 
-  <form>
-    <input type="text" placeholder="Name" required>
-    <input type="email" placeholder="Email" required>
-    <textarea placeholder="Message" required></textarea>
+  <form action="#" method="post">
 
-    <!-- حط رقمك -->
-    <a href="#" class="cta">WhatsApp</a>
+    <div>
+      <label for="name">Name</label>
+      <input id="name" name="name" type="text" required>
+    </div>
+
+    <div>
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" required>
+    </div>
+
+    <div>
+      <label for="message">Message</label>
+      <textarea id="message" name="message" required></textarea>
+    </div>
+
+    <button type="submit" class="cta">Send Message</button>
   </form>
+
+  <!-- WhatsApp -->
+  <p>
+    <a href="https://wa.me/0000000000" target="_blank" rel="noopener" class="cta">
+      Contact via WhatsApp
+    </a>
+  </p>
+
 </section>
 
-<!-- STICKY -->
-<button id="stickyCTA">Start Now</button>
+</main>
 
-<!-- NOTIF -->
-<div id="notif"></div>
+<!-- STICKY CTA -->
+<button id="stickyCTA" type="button">Start Now</button>
 
-<!-- EXIT -->
-<div id="exitPopup">
+<!-- NOTIFICATION -->
+<div id="notif" role="status" aria-live="polite"></div>
+
+<!-- EXIT POPUP -->
+<div id="exitPopup" role="dialog" aria-modal="true" aria-labelledby="exitTitle">
   <div class="popup">
-    <p data-key="exit">Wait... before you leave 👀</p>
-    <button class="cta">Get Clients Now</button>
-    <span id="closePopup">✖</span>
+    <p id="exitTitle" data-key="exit">Wait... before you leave 👀</p>
+    <button type="button" class="cta">Get Clients Now</button>
+    <button id="closePopup" type="button" aria-label="Close">✖</button>
   </div>
 </div>
 
 <script src="script.js"></script>
+
 </body>
 </html>
