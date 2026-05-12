@@ -1,66 +1,99 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  /* 🔥 Sticky CTA text change */
+  const safe = el => el !== null;
+
+  /* Sticky CTA */
   const sticky = document.getElementById("stickyCTA");
+  if (safe(sticky)) {
+    window.addEventListener("scroll", () => {
+      const y = window.scrollY;
+      sticky.textContent =
+        y < 300 ? "Start Now" :
+        y < 800 ? "Get Offer" :
+        "Get Clients Now";
+    });
+  }
 
-  window.addEventListener("scroll", () => {
-    let y = window.scrollY;
-
-    if (y < 300) sticky.textContent = "Start Now";
-    else if (y < 800) sticky.textContent = "Get Offer";
-    else sticky.textContent = "Get Clients Now";
-  });
-
-  /* 🔔 Fake notifications */
+  /* Notifications */
   const notif = document.getElementById("notif");
+  if (safe(notif)) {
+    const messages = [
+      "Someone just booked 🔥",
+      "New client joined",
+      "Order received ⚡"
+    ];
 
-  setInterval(() => {
-    notif.style.display = "block";
-    setTimeout(() => notif.style.display = "none", 3000);
-  }, 8000);
+    setInterval(() => {
+      notif.textContent =
+        messages[Math.floor(Math.random()*messages.length)];
+      notif.style.display = "block";
 
-  /* 😈 Exit popup */
+      setTimeout(() => notif.style.display = "none", 3000);
+
+    }, 7000);
+  }
+
+  /* Exit popup */
   const popup = document.getElementById("exitPopup");
   const close = document.getElementById("closePopup");
+  let shown = false;
 
-  document.addEventListener("mouseleave", e => {
-    if (e.clientY < 10) popup.style.display = "block";
-  });
+  if (safe(popup)) {
+    document.addEventListener("mouseleave", e => {
+      if (e.clientY < 10 && !shown) {
+        popup.style.display = "block";
+        shown = true;
+      }
+    });
+  }
 
-  if (close) {
+  if (safe(close)) {
     close.addEventListener("click", () => {
       popup.style.display = "none";
     });
   }
 
-  /* ⏳ Countdown */
-  const countdown = document.getElementById("countdown");
-  let time = 3600;
-
-  setInterval(() => {
-    time--;
-    let m = Math.floor(time / 60);
-    let s = time % 60;
-    countdown.textContent = `Offer ends in ${m}:${s}`;
-  }, 1000);
-
-  /* 🌍 Multi language */
+  /* Multi-language FULL */
   const translations = {
-    en: { hero_title: "Get More Clients" },
-    fr: { hero_title: "Obtenez plus de clients" },
-    ar: { hero_title: "احصل على المزيد من العملاء" },
-    de: { hero_title: "Mehr Kunden gewinnen" }
+    en: {
+      hero_title:"Get More Clients. Stop Losing Money.",
+      hero_sub:"I build websites that bring you real clients.",
+      nav_home:"Home", nav_about:"About", nav_services:"Services",
+      nav_proof:"Results", nav_contact:"Contact",
+      about_title:"About Me",
+      about_text:"I help businesses grow with high-converting websites.",
+      services_title:"Services",
+      proof_title:"Results",
+      contact_title:"Contact",
+      exit:"Wait... before you leave 👀",
+      trust:"✔ Fast ✔ Results ✔ Proven"
+    },
+    fr: {
+      hero_title:"Obtenez plus de clients",
+      hero_sub:"Je crée des sites qui génèrent des clients"
+    },
+    ar: {
+      hero_title:"احصل على المزيد من العملاء",
+      hero_sub:"أبني مواقع تجلب لك عملاء حقيقيين"
+    },
+    de: {
+      hero_title:"Mehr Kunden gewinnen",
+      hero_sub:"Ich erstelle Websites, die Kunden bringen"
+    }
   };
 
-  const langSelect = document.getElementById("lang");
+  const lang = document.getElementById("lang");
 
-  if (langSelect) {
-    langSelect.addEventListener("change", () => {
-      const lang = langSelect.value;
+  if (safe(lang)) {
+    lang.addEventListener("change", () => {
+      const l = lang.value;
+
+      document.body.classList.toggle("rtl", l === "ar");
+
       document.querySelectorAll("[data-key]").forEach(el => {
         const key = el.dataset.key;
-        if (translations[lang][key]) {
-          el.textContent = translations[lang][key];
+        if (translations[l] && translations[l][key]) {
+          el.textContent = translations[l][key];
         }
       });
     });
