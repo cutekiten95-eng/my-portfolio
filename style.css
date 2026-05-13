@@ -1,213 +1,85 @@
-/* RESET */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+body{
+margin:0;
+font-family:Arial;
+background:#020617;
+color:white;
 }
 
-html {
-  scroll-behavior: smooth;
+nav{
+position:fixed;
+width:100%;
+display:flex;
+justify-content:space-between;
+padding:15px;
+background:rgba(0,0,0,0.8);
 }
 
-body {
-  font-family: Arial, sans-serif;
-  background: #020617;
-  color: white;
-  line-height: 1.6;
+.links a{
+color:white;
+margin:10px;
+text-decoration:none;
 }
 
-/* RTL */
-body.rtl {
-  direction: rtl;
+section{
+padding:120px 20px;
+margin-top:80px;
 }
 
-/* NAV */
-nav {
-  position: fixed;
-  width: 100%;
-  top: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 30px;
-  background: rgba(0,0,0,0.7);
-  backdrop-filter: blur(10px);
-  z-index: 999;
+h1{
+font-size:45px;
+background:linear-gradient(90deg,#22c55e,#4ade80);
+-webkit-background-clip:text;
+color:transparent;
 }
 
-.links {
-  list-style: none;
-  display: flex;
-  gap: 20px;
+.cta{
+background:#22c55e;
+padding:12px 25px;
+border:none;
+border-radius:8px;
+cursor:pointer;
+animation:pulse 2s infinite;
 }
 
-.links a {
-  text-decoration: none;
-  color: white;
-  position: relative;
+@keyframes pulse{
+50%{transform:scale(1.05);}
 }
 
-.links a::after {
-  content: "";
-  position: absolute;
-  height: 2px;
-  width: 0%;
-  left: 0;
-  bottom: -4px;
-  background: #22c55e;
-  transition: 0.3s;
+.grid{
+display:flex;
+gap:20px;
+flex-wrap:wrap;
 }
 
-.links a:hover::after {
-  width: 100%;
+.card{
+background:#111;
+padding:20px;
+border-radius:10px;
+transition:0.3s;
 }
 
-/* SECTIONS */
-section {
-  padding: 120px 20px;
-  margin: 100px auto;
-  width: 85%;
-  background: rgba(15,23,42,0.6);
-  border-radius: 20px;
-  backdrop-filter: blur(10px);
-  transform: translateY(40px);
-  opacity: 0;
-  transition: 0.6s ease;
+.card:hover{
+transform:translateY(-10px);
 }
 
-section.show {
-  transform: translateY(0);
-  opacity: 1;
+#stickyCTA{
+position:fixed;
+bottom:20px;
+right:20px;
 }
 
-/* HERO */
-#home {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
+#notif{
+position:fixed;
+bottom:80px;
+left:20px;
+background:#111;
+padding:10px;
+display:none;
 }
 
-h1 {
-  font-size: 48px;
-  background: linear-gradient(90deg,#22c55e,#4ade80);
-  -webkit-background-clip: text;
-  color: transparent;
-}
-
-/* CTA */
-.cta {
-  margin-top: 20px;
-  padding: 15px 30px;
-  background: #22c55e;
-  color: black;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  font-weight: bold;
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  50% { transform: scale(1.07); }
-}
-
-/* GRID */
-.grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-}
-
-/* CARD */
-.card {
-  background: rgba(30,41,59,0.7);
-  padding: 25px;
-  border-radius: 12px;
-  width: 260px;
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 0 20px #22c55e;
-}
-
-/* URGENCY */
-#urgency {
-  text-align: center;
-  border: 2px solid #22c55e;
-}
-
-/* STICKY CTA */
-#stickyCTA {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  padding: 15px 25px;
-  background: #22c55e;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  z-index: 999;
-}
-
-/* NOTIFICATION */
-#notif {
-  position: fixed;
-  bottom: 90px;
-  left: 20px;
-  background: #111;
-  padding: 12px;
-  border-radius: 8px;
-  display: none;
-}
-
-/* POPUP */
-#exitPopup {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.8);
-  display: none;
-  align-items: center;
-  justify-content: center;
-}
-
-.popup {
-  background: #111;
-  padding: 30px;
-  border-radius: 12px;
-  text-align: center;
-  width: 300px;
-}
-
-/* FORM */
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-input, textarea {
-  padding: 10px;
-  border-radius: 8px;
-  border: none;
-}
-
-/* MOBILE */
-@media(max-width: 768px){
-  .links {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  section {
-    width: 95%;
-  }
-
-  h1 {
-    font-size: 32px;
-  }
+#exitPopup{
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,0.8);
 }
