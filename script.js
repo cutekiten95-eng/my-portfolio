@@ -1,146 +1,219 @@
-document.addEventListener("DOMContentLoaded", () => {
+const translations = {
 
-  const safe = el => el !== null;
+  en: {
+    nav_home:"Home",
+    nav_about:"About",
+    nav_services:"Services",
+    nav_proof:"Results",
+    nav_contact:"Contact",
 
-  /* 🔥 TRANSLATIONS FULL */
-  const translations = {
-    en: {
-      nav_home: "Home",
-      nav_about: "About",
-      nav_services: "Services",
-      nav_proof: "Results",
-      nav_contact: "Contact",
+    hero_title:"Get More Clients. Stop Losing Customers.",
+    hero_sub:"I build websites that turn visitors into paying clients.",
+    trust:"✔ Fast ✔ Proven ✔ Results",
 
-      hero_title: "Get More Clients. Stop Losing Customers.",
-      hero_sub: "I build websites that turn visitors into paying clients.",
-      trust: "✔ Fast ✔ Proven ✔ Results",
+    cta_main:"Get Clients Now",
+    cta_services:"Get Clients Now",
+    cta_proof:"Get Clients Now",
+    cta_urgency:"Get Your Spot Now",
+    cta_contact:"Get Clients Now",
+    cta_exit:"Get Clients Now",
+    cta_whatsapp:"WhatsApp",
+    sticky_cta:"Start Now",
 
-      about_title: "Why Work With Me",
-      about_text: "Most websites look good but don’t bring clients. I focus on results.",
-      
-      services_title: "What You Get",
-      s1: "Get More Clients Online",
-      s1d: "High converting websites",
-      s2: "Turn Data Into Decisions",
-      s2d: "Automation & data",
-      s3: "Reach Global Clients",
-      s3d: "AR / FR / EN / DE",
+    about_title:"Why Work With Me",
+    about_text:"Most websites look good but don’t bring clients. I focus on results.",
+    about_c1:"✔ Client-focused strategy",
+    about_c2:"✔ High-converting design",
+    about_c3:"✔ Fast delivery",
 
-      proof_title: "Real Results",
+    services_title:"What You Get",
+    s1:"Get More Clients Online",
+    s1d:"High converting websites",
+    s2:"Turn Data Into Decisions",
+    s2d:"Automation & data",
+    s3:"Reach Global Clients",
+    s3d:"AR / FR / EN / DE",
 
-      contact_title: "Start Now",
-      exit: "Wait... before you leave 👀"
-    },
+    proof_title:"Real Results",
+    r1:"+40% More Clients",
+    r2:"20+ Hours Saved",
+    r3:"100% Satisfaction",
+    t1:"Amazing work!",
+    t2:"Got real clients!",
+    t3:"Highly recommended",
 
-    fr: {
-      nav_home: "Accueil",
-      nav_about: "À propos",
-      nav_services: "Services",
-      nav_proof: "Résultats",
-      nav_contact: "Contact",
+    urgency_title:"Limited Spots Available",
+    urgency_text:"Only a few clients are accepted each week.",
 
-      hero_title: "Obtenez plus de clients",
-      hero_sub: "Je crée des sites qui attirent des clients",
-      trust: "✔ Rapide ✔ Résultats ✔ Fiable",
+    contact_title:"Start Now",
+    label_name:"Name",
+    label_email:"Email",
+    label_message:"Message",
 
-      about_title: "Pourquoi me choisir",
-      about_text: "Je crée des sites qui convertissent vraiment.",
+    exit:"Wait… before you leave 👀",
+    exit_sub:"You might be missing new clients today."
+  },
 
-      services_title: "Services",
-      s1: "Obtenez plus de clients",
-      s1d: "Sites optimisés conversion",
-      s2: "Analyse de données",
-      s2d: "Automatisation & insights",
-      s3: "Clients internationaux",
-      s3d: "AR / FR / EN / DE",
+  fr: {
+    nav_home:"Accueil",
+    nav_about:"À propos",
+    nav_services:"Services",
+    nav_proof:"Résultats",
+    nav_contact:"Contact",
 
-      proof_title: "Résultats",
+    hero_title:"Obtenez plus de clients",
+    hero_sub:"Je crée des sites qui génèrent des clients",
+    trust:"✔ Rapide ✔ Résultats ✔ Fiable",
 
-      contact_title: "Commencer",
-      exit: "Attendez avant de partir 👀"
-    },
+    cta_main:"Obtenir des clients",
+    cta_services:"Obtenir des clients",
+    cta_proof:"Obtenir des clients",
+    cta_urgency:"Réserver maintenant",
+    cta_contact:"Commencer",
+    cta_exit:"Obtenir des clients",
+    cta_whatsapp:"WhatsApp",
+    sticky_cta:"Commencer",
 
-    ar: {
-      nav_home: "الرئيسية",
-      nav_about: "من أنا",
-      nav_services: "الخدمات",
-      nav_proof: "النتائج",
-      nav_contact: "تواصل",
+    about_title:"Pourquoi moi",
+    about_text:"Je crée des sites qui convertissent réellement.",
+    about_c1:"✔ Stratégie orientée client",
+    about_c2:"✔ Design optimisé conversion",
+    about_c3:"✔ Livraison rapide",
 
-      hero_title: "احصل على المزيد من العملاء",
-      hero_sub: "أبني مواقع تحول الزوار إلى عملاء",
-      trust: "✔ سريع ✔ نتائج ✔ موثوق",
+    services_title:"Services",
+    s1:"Plus de clients",
+    s1d:"Sites optimisés",
+    s2:"Analyse des données",
+    s2d:"Automatisation",
+    s3:"Clients internationaux",
+    s3d:"AR / FR / EN / DE",
 
-      about_title: "لماذا تختارني",
-      about_text: "أنا أركز على النتائج وليس فقط التصميم.",
+    proof_title:"Résultats",
+    r1:"+40% clients",
+    r2:"20h économisées",
+    r3:"100% satisfaction",
+    t1:"Excellent travail",
+    t2:"Clients réels",
+    t3:"Recommandé",
 
-      services_title: "الخدمات",
-      s1: "جلب عملاء أكثر",
-      s1d: "مواقع عالية التحويل",
-      s2: "تحليل البيانات",
-      s2d: "أتمتة ونتائج",
-      s3: "عملاء عالميين",
-      s3d: "عربي / فرنسي / إنجليزي / ألماني",
+    urgency_title:"Places limitées",
+    urgency_text:"Seulement quelques clients par semaine.",
 
-      proof_title: "النتائج",
+    contact_title:"Commencer",
+    label_name:"Nom",
+    label_email:"Email",
+    label_message:"Message",
 
-      contact_title: "ابدأ الآن",
-      exit: "انتظر قبل أن تغادر 👀"
-    },
+    exit:"Attendez avant de partir 👀",
+    exit_sub:"Vous pourriez perdre des clients aujourd'hui."
+  },
 
-    de: {
-      nav_home: "Startseite",
-      nav_about: "Über mich",
-      nav_services: "Dienstleistungen",
-      nav_proof: "Ergebnisse",
-      nav_contact: "Kontakt",
+  ar: {
+    nav_home:"الرئيسية",
+    nav_about:"من أنا",
+    nav_services:"الخدمات",
+    nav_proof:"النتائج",
+    nav_contact:"تواصل",
 
-      hero_title: "Mehr Kunden gewinnen",
-      hero_sub: "Ich erstelle Websites die Kunden bringen",
-      trust: "✔ Schnell ✔ Ergebnisse ✔ Bewährt",
+    hero_title:"احصل على المزيد من العملاء",
+    hero_sub:"أبني مواقع تجلب لك عملاء حقيقيين",
+    trust:"✔ سريع ✔ نتائج ✔ موثوق",
 
-      about_title: "Warum ich",
-      about_text: "Ich fokussiere mich auf echte Ergebnisse.",
+    cta_main:"احصل على عملاء",
+    cta_services:"احصل على عملاء",
+    cta_proof:"احصل على عملاء",
+    cta_urgency:"احجز الآن",
+    cta_contact:"ابدأ الآن",
+    cta_exit:"احصل على عملاء",
+    cta_whatsapp:"واتساب",
+    sticky_cta:"ابدأ",
 
-      services_title: "Services",
-      s1: "Mehr Kunden gewinnen",
-      s1d: "Conversion Websites",
-      s2: "Datenanalyse",
-      s2d: "Automatisierung",
-      s3: "Globale Kunden",
-      s3d: "AR / FR / EN / DE",
+    about_title:"لماذا أنا",
+    about_text:"أنا أركز على النتائج وليس فقط التصميم.",
+    about_c1:"✔ استراتيجية موجهة للعميل",
+    about_c2:"✔ تصميم عالي التحويل",
+    about_c3:"✔ سرعة في التنفيذ",
 
-      proof_title: "Ergebnisse",
+    services_title:"الخدمات",
+    s1:"جلب عملاء",
+    s1d:"مواقع احترافية",
+    s2:"تحليل البيانات",
+    s2d:"أتمتة",
+    s3:"عملاء عالميين",
+    s3d:"عربي / فرنسي / إنجليزي / ألماني",
 
-      contact_title: "Jetzt starten",
-      exit: "Warte... bevor du gehst 👀"
-    }
-  };
+    proof_title:"النتائج",
+    r1:"+40% عملاء",
+    r2:"20 ساعة توفير",
+    r3:"100% رضا",
+    t1:"عمل رائع",
+    t2:"عملاء حقيقيين",
+    t3:"أنصح به",
 
-  /* 🌍 LANGUAGE SWITCH */
-  const langSelect = document.getElementById("lang");
+    urgency_title:"أماكن محدودة",
+    urgency_text:"عدد محدود من العملاء أسبوعياً.",
 
-  if (safe(langSelect)) {
-    langSelect.addEventListener("change", () => {
+    contact_title:"ابدأ الآن",
+    label_name:"الاسم",
+    label_email:"البريد",
+    label_message:"رسالة",
 
-      const lang = langSelect.value;
+    exit:"انتظر قبل المغادرة 👀",
+    exit_sub:"قد تضيع عملاء اليوم."
+  },
 
-      /* HTML lang */
-      document.documentElement.lang = lang;
+  de: {
+    nav_home:"Start",
+    nav_about:"Über mich",
+    nav_services:"Services",
+    nav_proof:"Ergebnisse",
+    nav_contact:"Kontakt",
 
-      /* RTL */
-      document.body.classList.toggle("rtl", lang === "ar");
+    hero_title:"Mehr Kunden gewinnen",
+    hero_sub:"Websites die Kunden bringen",
+    trust:"✔ Schnell ✔ Ergebnisse ✔ Bewährt",
 
-      /* APPLY TRANSLATION */
-      document.querySelectorAll("[data-key]").forEach(el => {
-        const key = el.dataset.key;
+    cta_main:"Kunden gewinnen",
+    cta_services:"Kunden gewinnen",
+    cta_proof:"Kunden gewinnen",
+    cta_urgency:"Jetzt sichern",
+    cta_contact:"Starten",
+    cta_exit:"Kunden gewinnen",
+    cta_whatsapp:"WhatsApp",
+    sticky_cta:"Start",
 
-        if (translations[lang] && translations[lang][key]) {
-          el.textContent = translations[lang][key];
-        }
-      });
+    about_title:"Warum ich",
+    about_text:"Ich konzentriere mich auf Ergebnisse.",
+    about_c1:"✔ Kundenstrategie",
+    about_c2:"✔ Conversion Design",
+    about_c3:"✔ Schnell",
 
-    });
+    services_title:"Services",
+    s1:"Mehr Kunden",
+    s1d:"Conversion Websites",
+    s2:"Datenanalyse",
+    s2d:"Automatisierung",
+    s3:"Globale Kunden",
+    s3d:"AR / FR / EN / DE",
+
+    proof_title:"Ergebnisse",
+    r1:"+40% Kunden",
+    r2:"20h gespart",
+    r3:"100% Zufriedenheit",
+    t1:"Super Arbeit",
+    t2:"Echte Kunden",
+    t3:"Empfohlen",
+
+    urgency_title:"Begrenzte Plätze",
+    urgency_text:"Nur wenige Kunden pro Woche.",
+
+    contact_title:"Start",
+    label_name:"Name",
+    label_email:"Email",
+    label_message:"Nachricht",
+
+    exit:"Warte bevor du gehst 👀",
+    exit_sub:"Du verlierst Kunden heute."
   }
 
-});
+};
