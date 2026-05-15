@@ -228,4 +228,74 @@ textarea {
     right: 10px;
     bottom: 10px;
   }
+/* ===== CLEAN PRO EFFECTS ===== */
+
+/* GLOW BACKGROUND */
+body::before{
+  content:"";
+  position:fixed;
+  width:700px;
+  height:700px;
+  border-radius:50%;
+  background:radial-gradient(circle,#7c3aed,transparent 70%);
+  top:-200px;
+  left:-200px;
+  filter:blur(180px);
+  z-index:-2;
+  opacity:0.6;
+}
+
+body::after{
+  content:"";
+  position:fixed;
+  width:700px;
+  height:700px;
+  border-radius:50%;
+  background:radial-gradient(circle,#f59e0b,transparent 70%);
+  bottom:-200px;
+  right:-200px;
+  filter:blur(180px);
+  z-index:-2;
+  opacity:0.6;
+}
+
+/* NOISE LAYER */
+body::marker {
+  display:none;
+}
+
+/* RING EFFECT */
+.ring{
+  position:absolute;
+  right:-200px;
+  top:100px;
+  width:500px;
+  height:500px;
+  border-radius:50%;
+  background:conic-gradient(
+    from 0deg,
+    #7c3aed,
+    #ec4899,
+    #f59e0b,
+    transparent
+  );
+  filter:blur(40px);
+  opacity:0.6;
+}
+
+/* GRADIENT TEXT */
+.gradient{
+  background: linear-gradient(90deg,#7c3aed,#ec4899,#f59e0b);
+  -webkit-background-clip: text;
+  color: transparent;
+  text-shadow:0 0 20px rgba(236,72,153,0.5);
+}
+
+/* CTA BUTTON (fix) */
+.cta{
+  background:linear-gradient(45deg,#7c3aed,#f59e0b);
+  box-shadow:
+    0 0 20px #7c3aed,
+    0 0 40px #f59e0b,
+    0 0 60px rgba(245,158,11,0.5);
 }
