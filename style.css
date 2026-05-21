@@ -60,7 +60,8 @@ body::after{
 
 body::before,
 body::after {
-  animation: floatGlow 10s ease-in-out infinite;
+  animation: floatGlow 15s ease-in-out infinite;
+  will-change: transform;
 }
 @keyframes rotateRing {
   from { transform: rotate(0deg); }
@@ -85,7 +86,11 @@ body::after,
     #9333ea,
     transparent
   );
-  .ring-bg {
+  filter: blur(60px);
+  opacity: 0.5;
+  z-index: -1;
+  pointer-events: none;
+
   animation: rotateRing 20s linear infinite;
 }
   filter: blur(60px);
