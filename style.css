@@ -6,15 +6,15 @@
   margin: 0;
   padding: 0;
 }
-
 /* ROOT */
 :root {
   --bg: #020617;
-  --card: rgba(30, 41, 59, 0.7);
-  --glass: rgba(15, 23, 42, 0.6);
-  --primary: #22c55e;
+  --primary: #ff4ecd;
+  --secondary: #9333ea;
   --text: #ffffff;
   --muted: #cbd5e1;
+  --card: rgba(30, 41, 59, 0.7);
+  --glass: rgba(15, 23, 42, 0.6);
 }
 
 /* BODY */
@@ -24,31 +24,84 @@ body {
   color: var(--text);
   line-height: 1.6;
   overflow-x: hidden;
+
+  position: relative;
+  z-index: 0;
+}
+/* GLOW */
+body::before,
+body::after{
+  content:"";
+  position:fixed;
+  width:700px;
+  height:700px;
+  border-radius:50%;
+  filter: blur(120px);
+  z-index:-2;
+  opacity:0.6;
 }
 
-/* 🔥 BACKGROUND GLOW */
+body::before{
+  background:radial-gradient(circle,#9333ea,transparent 70%);
+  top:-200px;
+  left:-200px;
+}
+
+body::after{
+  background:radial-gradient(circle,#ff4ecd,transparent 70%);
+  bottom:-200px;
+  right:-200px;
+} 
+@keyframes floatGlow {
+  0% { transform: translate(0,0); }
+  50% { transform: translate(50px, -50px); }
+  100% { transform: translate(0,0); }
+}
+
 body::before,
 body::after {
-  content: "";
+  animation: floatGlow 10s ease-in-out infinite;
+}
+@keyframes rotateRing {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+body::before,
+body::after,
+.ring-bg {
+  will-change: transform;
+}
+.ring-bg {
   position: fixed;
-  width: 450px;
-  height: 450px;
+  right: -200px;
+  top: 100px;
+  width: 600px;
+  height: 600px;
   border-radius: 50%;
-  filter: blur(120px);
+  background: conic-gradient(
+    from 0deg,
+    #ff4ecd,
+    #c084fc,
+    #9333ea,
+    transparent
+  );
+  .ring-bg {
+  animation: rotateRing 20s linear infinite;
+}
+  filter: blur(60px);
+  opacity: 0.5;
   z-index: -1;
   pointer-events: none;
 }
-
-body::before {
-  background: #7c3aed;
-  top: -150px;
-  left: -150px;
+.fade{
+  opacity:0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
 }
 
-body::after {
-  background: #2563eb;
-  bottom: -150px;
-  right: -150px;
+.fade.show{
+  opacity:1;
+  transform: translateY(0);
 }
 
 /* NAV */
@@ -91,8 +144,14 @@ section {
   backdrop-filter: blur(12px);
   border-radius: 20px;
   box-shadow: 0 0 30px rgba(76,29,149,0.25);
-}
 
+  transition: all 0.6s ease;
+}
+@media (hover: hover) {
+  section:hover {
+    transform: scale(1.01);
+  }
+}
 /* HERO */
 .hero {
   height: 100vh;
@@ -102,10 +161,9 @@ section {
   align-items: center;
   text-align: center;
 }
-
 h1 {
   font-size: clamp(32px, 5vw, 60px);
-  background: linear-gradient(90deg, var(--primary), #4ade80);
+  background: linear-gradient(90deg,#ff4ecd,#c084fc,#9333ea);
   -webkit-background-clip: text;
   color: transparent;
 }
@@ -120,19 +178,29 @@ p {
 .cta {
   margin-top: 20px;
   padding: 14px 28px;
-  background: var(--primary);
+  background: linear-gradient(45deg,#ff4ecd,#9333ea);
   border: none;
   border-radius: 10px;
   cursor: pointer;
   font-weight: bold;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
+  color: white;
+  transition: 0.3s;
+  box-shadow:
+    0 0 20px #ff4ecd,
+    0 0 40px #9333ea;
 
+  position: relative;
+  overflow: hidden;
+}
 .cta:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 20px var(--primary);
+  box-shadow:
+    0 0 20px var(--primary),
+    0 0 40px var(--secondary);
 }
-
+.cta:active {
+  transform: scale(0.97);
+}
 /* GRID */
 .grid {
   display: flex;
@@ -148,11 +216,27 @@ p {
   border-radius: 12px;
   background: var(--card);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  position: relative;
+  overflow: hidden;
+}
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent, rgba(255,78,205,0.4), transparent);
+  opacity: 0;
+  transition: 0.5s;
 }
 
-.card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 0 20px var(--primary);
+.card:hover::before {
+  opacity: 1;
+  animation: shine 1s;
+}
+
+@keyframes shine {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(100%); }
 }
 
 /* FORM */
@@ -189,9 +273,12 @@ textarea {
   position: fixed;
   bottom: 90px;
   left: 20px;
-  background: #111;
-  padding: 12px;
-  border-radius: 8px;
+  background: rgba(15,23,42,0.8);
+  backdrop-filter: blur(10px);
+  padding: 12px 18px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,78,205,0.3);
+  box-shadow: 0 0 15px rgba(255,78,205,0.3);
   display: none;
 }
 
@@ -228,74 +315,40 @@ textarea {
     right: 10px;
     bottom: 10px;
   }
+  }
 /* ===== CLEAN PRO EFFECTS ===== */
 
-/* GLOW BACKGROUND */
-body::before{
-  content:"";
-  position:fixed;
-  width:700px;
-  height:700px;
-  border-radius:50%;
-  background:radial-gradient(circle,#7c3aed,transparent 70%);
-  top:-200px;
-  left:-200px;
-  filter:blur(180px);
-  z-index:-2;
-  opacity:0.6;
+.cursor {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ff4ecd;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: 0.1s;
+  z-index: 9999;
 }
-
-body::after{
-  content:"";
-  position:fixed;
-  width:700px;
-  height:700px;
-  border-radius:50%;
-  background:radial-gradient(circle,#f59e0b,transparent 70%);
-  bottom:-200px;
-  right:-200px;
-  filter:blur(180px);
-  z-index:-2;
-  opacity:0.6;
+@media (max-width: 768px) {
+  .cursor {
+    display: none;
+  }
 }
-
-/* NOISE LAYER */
-body::marker {
-  display:none;
+button:focus,
+a:focus {
+  outline: 2px solid var(--primary);
 }
-
-/* RING EFFECT */
-.ring{
-  position:absolute;
-  right:-200px;
-  top:100px;
-  width:500px;
-  height:500px;
-  border-radius:50%;
-  background:conic-gradient(
-    from 0deg,
-    #7c3aed,
-    #ec4899,
-    #f59e0b,
-    transparent
-  );
-  filter:blur(40px);
-  opacity:0.6;
+html {
+  scroll-behavior: smooth;
 }
-
-/* GRADIENT TEXT */
-.gradient{
-  background: linear-gradient(90deg,#7c3aed,#ec4899,#f59e0b);
-  -webkit-background-clip: text;
-  color: transparent;
-  text-shadow:0 0 20px rgba(236,72,153,0.5);
+::selection {
+  background: var(--primary);
+  color: white;
 }
-
-/* CTA BUTTON (fix) */
-.cta{
-  background:linear-gradient(45deg,#7c3aed,#f59e0b);
-  box-shadow:
-    0 0 20px #7c3aed,
-    0 0 40px #f59e0b,
-    0 0 60px rgba(245,158,11,0.5);
+@media (prefers-reduced-motion: reduce) {
+  body::before,
+  body::after,
+  .ring-bg {
+    animation: none;
+  }
 }
