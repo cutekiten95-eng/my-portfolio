@@ -354,3 +354,25 @@ html {
     animation: none;
   }
 }
+/* =========================
+   STORY SCROLL + CINEMATIC
+========================= */
+
+html {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+.story-section {
+  min-height: 100vh;
+  scroll-snap-align: start;
+
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.story-section.show {
+  opacity: 1;
+  transform: translateY(0);
+}
