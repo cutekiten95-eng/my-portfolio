@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     fr: {
       hero_title: "Je crée des sites qui attirent des clients",
-      hero_sub: "Sites rapides et efficaces qui convertissent"
+      hero_sub: "Sites rapides et efficaces"
     },
     ar: {
       hero_title: "أبني مواقع تجلب العملاء",
@@ -35,20 +35,22 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* =========================
-     👀 STORY SCROLL (APPLE STYLE)
+     👀 STORY SCROLL (ONE SYSTEM ONLY)
   ========================== */
 
-  const revealElements = document.querySelectorAll(".fade");
+  const sections = document.querySelectorAll(".story-section");
 
-  const revealObserver = new IntersectionObserver((entries) => {
+  const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add("show");
       }
     });
-  }, { threshold: 0.2 });
+  }, {
+    threshold: 0.5
+  });
 
-  revealElements.forEach(el => revealObserver.observe(el));
+  sections.forEach(sec => observer.observe(sec));
 
   /* =========================
      📩 FORM HANDLING
@@ -75,9 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const isValid = [...inputs].every(i => i.value.trim());
 
       showNotif(
-        isValid
-          ? "Message sent 🚀"
-          : "Fill all fields ⚠️"
+        isValid ? "Message sent 🚀" : "Fill all fields ⚠️"
       );
 
       if (isValid) form.reset();
@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* =========================
-     👻 EXIT INTENT POPUP
+     👻 EXIT POPUP
   ========================== */
 
   const exitPopup = document.getElementById("exitPopup");
@@ -126,6 +126,7 @@ document.addEventListener("DOMContentLoaded", () => {
   ========================== */
 
   const progressBar = document.createElement("div");
+
   Object.assign(progressBar.style, {
     position: "fixed",
     top: "0",
@@ -154,21 +155,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   setInterval(() => {
     leads++;
-
     showNotif(`🔥 ${leads} people contacted you today`);
   }, 12000);
 
 });
-const sections = document.querySelectorAll(".story-section");
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("active");
-    }
-  });
-}, {
-  threshold: 0.5
-});
-
-sections.forEach(sec => observer.observe(sec));
